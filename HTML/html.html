@@ -1,0 +1,143 @@
+﻿<!doctype html>
+<html lang="zh-hans">
+<!--初步想法，主页面上有“学习历程”“生活”“个人简介”等模块，风格简约
+这个网页现在肯定是不堪入目的，连自己都不知道想要一个什么样子，当然会会先去模仿别人的，
+学习的过程不就是这样吗？
+以上2016-7-24  -->
+
+
+<head>
+    <meta charset="utf-8">  <!--指定字符编码！不加这行会乱码 -->
+    <title>Be yourself,love your life!</title>
+	<link type="text/css" rel="stylesheet" href="../home.css">
+	<style type="text/css">
+	  
+	    pre{
+		    border:1px solid gray;
+			background-color:#eeeeee;
+			padding:15px;
+			margin:20px;
+			text-align:left;}
+	</style>
+</head>
+<body>
+<header>Be yourself,Love your life!<br/>
+<p>做自己，爱生活！</p>
+</header>
+<!-- 想好了、弄好了再加上去 -->
+<!-- 下面再加个导航 -->
+<div id="container">
+    <nav>
+        <ul>
+	        <li><a class="nounderline" href="../home.html">&gt;主页</li>
+		    <li><a class="nounderline" href="../learning/learning.html">&gt;学习历程</a></li>
+		    <li><a class="nounderline" href="html.html">&gt;HTML与CSS</a></li>
+		<!-- 现在也就先弄好一个，后续需要再添加 -->
+	    </ul>
+    </nav>
+<!-- 主页上要显示些什么类容，目前还不知道，先去弄“学习历程”吧——2016-7-24  -->
+<section>
+    <article>
+	    <p>以下内容来自慕课网</p><hr />
+        <h2>重要性</h2>
+            <p>我们在做网页代码的时，有些特殊的情况需要为某些样式设置具有最高权值，怎么办？这时候我们可以使用!important来解决。<br />
+
+               如下代码：<br />
+			   <pre>
+                p{color:red!important;}
+                p{color:green;}		 
+               &lt;p class="first"&gt;三年级时，我还是一个&lt;span&gt;胆小如鼠&lt;/span&gt;的小女孩。&lt;/p&gt;</pre>
+                这时 p 段落中的文本会显示的red红色。  </code>
+		    </p>
+
+        <strong>注意：!important要写在分号的前面</strong>
+
+        <p>这里注意当网页制作者不设置css样式时，浏览器会按照自己的一套样式来显示网页。并且用户也可以在浏览器中设置自己习惯的样式，比如有的用户习惯把字号设置为大一些，使其查看网页的文本更加清楚。这时注意样式优先级为：浏览器默认的样式 &lt; 网页制作者样式 &gt;用户自己设置的样式，但记住!important优先级样式是个例外，权值高于用户自己设置的样式。</p>
+    </article>
+	<article>
+	    <h2>段落排版--缩进</h2>
+        <p>中文文字中的段前习惯空两个文字的空白，这个特殊的样式可以用下面代码来实现：
+		    <pre>
+        p{text-indent:2em;}
+        &lt;p&gt;1922年的春天，一个想要成名名叫尼克卡拉威（托比`马奎尔Tobey Maguire 饰）的作家，
+        离开了美国中西部，来到了纽约。那是一个道德感渐失，爵士乐流行，走私为王，股票飞涨的时代。
+        为了追寻他的美国梦，他搬入纽约附近一海湾居住。&lt;/p&gt;
+            </pre>
+		    注意：2em的意思就是文字的2倍大小。
+		</p>
+	</article>
+	<article>
+	    <h2>层模型：相对定位、绝对定位、固定定位</h2>
+		<p>相对定位：<br />		如果想为元素设置层模型中的相对定位，需要设置position:relative（表示相对定位），它通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，移动的方向和幅度由left、right、top、bottom属性确定，偏移前的位置保留不动。</p>
+		<p>绝对定位：<br />		如果想为元素设置层模型中的绝对定位，需要设置position:absolute(表示绝对定位)，这条语句的作用将元素从文档流中拖出来，然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。</p>
+		<p>固定定位：<br />		fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。以下代码可以实现相对于浏览器视图向右移动100px，向下移动50px。并且拖动滚动条时位置固定不变。</p>
+		<p>Relative与Absolute组合使用</p>
+		<a href="http://www.imooc.com/code/3585" title="Relative与Absolute组合使用">详见慕课网</a>
+	</article>
+	<article>
+	    <h2>设置文本垂直居中</h2>
+		<a href="http://www.imooc.com/code/6368" title="垂直居中-父元素高度确定的单行文本">垂直居中-父元素高度确定的单行文本</a><br />
+		<p>垂直居中-父元素高度确定的多行文本
+		    <ul>
+		        <li><a href="http://www.imooc.com/code/6370" title="垂直居中-父元素高度确定的多行文本（方法一）">方法一</a></li>
+			    <li><a href="http://www.imooc.com/code/6424" title="垂直居中-父元素高度确定的多行文本（方法二）">方法二</a></li>
+		    </ul>
+		</p>
+	</article>
+</section>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer><p>Be yourself,Love your life！&nbsp;&nbsp;&copy;2016&nbsp;Cham&nbsp;</p></footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

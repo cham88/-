@@ -1,0 +1,182 @@
+
+
+/*通用样式*/
+body,ul,li,a,p{
+	font-family: "宋体" sans-serif;
+	font-size: 13px;
+	color:#555;
+	margin:0;
+	padding:0;
+}
+/*a{
+	color:black;
+}*/
+
+ /* ----------------------------------------导航样式----------------------------------------------------*/   
+ .header{
+ 	height:50px;
+	width:100%;
+	line-height:50px;
+ }
+.nav-lis {
+    	float:right;
+    }
+.float-right{
+		margin-left:10px;
+    	float:right
+    }
+ .float-left{
+    	float:left;
+    }
+li{
+	list-style: none;
+	display: inline-block;
+	margin-left:15px;
+
+}
+.nav-lis-item a:link{
+	color:#333;
+}
+.nav-lis-item a:visited{
+	color:#333;}
+.nav-lis-item a:hover{
+	color:blue;
+}
+
+.mouseon-see{
+	display: none;
+}
+.text-bold{
+	font-weight: bold;
+}
+
+.item-nosee{
+	display: none;
+}
+label.more{	
+	display: block;
+	width: 60px;
+	height: 26px;
+	background: #38f;
+	color: #fff;
+	text-align: center;
+	line-height: 26px;
+	text-decoration: none;
+	margin-right: 10px;
+}
+.nav-lis-item{
+	line-height: 24px;
+}
+/* ------------------------------------------main-body----------------------------------------------------------*/   
+#main-body{
+	text-align: center;
+	padding-bottom: 100px;
+}
+
+input{
+	margin-top: 25px;
+	padding:0;
+	height: 32px;
+	width: 540px; 
+
+}
+form{
+	position: relative;
+}
+span#btn-icn{
+		position:absolute;
+        top:57%;
+        display: inline-block;
+        height:19px;
+        width:19px;
+        background-image:url(img/camera_new_679c15cc.png);
+        background-repeat:no-repeat;
+        margin-left:-128px;
+}
+.btn{
+ 		display:inline-block;
+        width:100px;
+        height:36px;
+		background-color: #3385ff;
+        border:0;
+        color:white;
+        font-size:15px;
+        margin-left:-1px;
+
+}
+#nothing-in{
+	height: 140px;
+	margin: 0;
+
+}
+/* --------------------------------------------------------------------------footer----------------------------------------------------*/   
+div.footer{
+	height: 70px;
+	width: 100%;
+	margin:0 auto 60px;
+	text-align: center;
+}
+div.row{
+	display: inline-block;
+
+}
+div.float-left{
+	float:left;
+	
+}
+p.text-bold,p.text-gray{
+	text-indent: 10px;
+	padding-top:13px;
+}
+
+div.app,div.nuomi{
+	width:156px;
+}
+p.text-bold{
+	color:#666;
+	font-size:13px;
+}
+
+/*----------------------------------------------------------------footer内的版权部分------------------------------------------------------------------------------*/
+.right-footer {
+	position:relative;
+	top:15px;
+
+	text-align:left;
+	}
+
+p{
+	line-height: 12px;
+	font-size: 12px;
+	color: #999;
+}
+
+p#mid{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.footer p a:link,a:visited,a:hover{
+	color: #999;
+}
+i#icon-1{
+	position:relative;
+	top:3px;
+	display: inline-block;
+	width:15px;
+	height:17px;
+	background-image:url(img/icons_0e814c16.png);
+	background-position: -600px 424px;;
+	margin-left:2px;
+}
+i#icon-2{
+	position:relative;
+	top:3px;
+	display: inline-block;
+	width:15px;
+	height:17px;
+	background-image:url(img/icons_0e814c16.png);
+	background-position: -622px 424px;
+	margin-right:10px;
+	
+}

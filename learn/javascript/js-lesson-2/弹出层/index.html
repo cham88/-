@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出层</title>
+	<style>
+		ul,li,p{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+			display: inline-block;
+			margin-top: 7px;
+			*display:inline;
+			*zoom:1;
+		}
+		#new{
+			width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 100px;
+			text-align: center;
+			position: relative;
+		}
+		p{
+			text-align: left;
+			font-size: 12px;
+			font-weight: bold;
+		}
+		li div{
+			position: absolute;
+			display: none;
+			z-index: 9999;
+			
+		}
+
+		
+	</style>
+
+	<script>
+		window.onload = function (){
+			var aLi = document.getElementsByTagName('li');
+			var len = aLi.length;
+
+			for(var i=0;i<len;i++){
+				if(i<6){
+					aLi[i].onmouseover = function(){
+						this.getElementsByTagName('div')[0].style.display = 'block';
+						this.getElementsByTagName('div')[0].style.top = '-100px';
+					};
+				}else{
+					aLi[i].onmouseover = function(){
+						this.getElementsByTagName('div')[0].style.display = 'block';
+						this.getElementsByTagName('div')[0].style.top = '-5px';
+					};
+				}
+				aLi[i].onmouseout = function(){
+					this.getElementsByTagName('div')[0].style.display = 'none';
+				};	
+			}
+
+	}
+		
+	</script>
+</head>
+<body>
+	<div id="new">
+
+			<p>最新上线</p>
+			<hr />
+		<ul id="list">
+			<li><img src="images/1.gif" alt="1" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/2.gif" alt="2" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/3.gif" alt="3" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/4.gif" alt="4" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/5.gif" alt="5" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/6.gif" alt="6" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/7.gif" alt="7" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/8.gif" alt="8" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/9.gif" alt="9" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/10.gif" alt="10" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/11.gif" alt="11" /><div><img src="images/m.gif" alt="简介" /></div></li>
+			<li><img src="images/12.gif" alt="12" /><div><img src="images/m.gif" alt="简介" /></div></li>
+		</ul>
+		
+	</div>
+
+</body>
+</html>

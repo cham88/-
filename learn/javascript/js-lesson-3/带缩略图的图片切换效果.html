@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带缩略图的图片切换效果</title>
+	<style>
+	p{
+		margin-top:5px;
+		margin-bottom: 5px; 
+	}
+	 .contain{
+		width: 600px;
+		height: 400px;	
+		margin: 0 auto;
+		text-align: center;
+		background-color: gray;
+
+	} 
+	span{
+		display: block;
+		height: 72px;
+		width: 38px;
+		margin-top:130px;
+		opacity: 0.5;
+	}
+	#prev{
+		float: left;
+		background: url(imgs/slider_btn_icon.png) no-repeat 0 -86px;
+	}
+	#prev:hover,#next:hover{
+		opacity: 1;
+	}
+	#next{
+		float: right;
+		background: url(imgs/slider_btn_icon.png) no-repeat;
+	}
+	#main{
+		max-width: 500px;
+		max-height: 350px;
+	}
+	label{
+		display: inline-block;
+		height: 12px;
+		width: 12px;
+		border: 1px solid black;
+		border-radius: 50%;
+		background-color: #C7C7C7;
+
+	}
+	#small{
+		display: none;
+		max-width: 100px;
+		max-height: 70px;
+		position:absolute;
+	}
+	.active{
+		background-color: yellow;
+	}
+	</style>
+
+	<script>
+	window.onload = function(){
+		var oPrev = document.getElementById('prev');
+		var oNext = document.getElementById('next');
+		var oMain = document.getElementById('main');
+		var aLb = document.getElementsByTagName('label');
+		var oSm = document.getElementById('small');
+		var aSrc = ['imgs/desktop1.jpg','imgs/desktop2.jpg','imgs/desktop3.jpg','imgs/desktop4.jpg','imgs/desktop5.jpg'];
+		var n = 0;
+		
+		function Iv(){
+			oMain.src = oSm.src = aSrc[0];
+			aLb[0].className = 'active';
+		}
+		Iv();
+		for(var i=0;i<aSrc.length;i++){
+			aLb[i].index = i;
+		}
+		oNext.onclick = function(){
+			n++;
+			var t = n%5;
+			oMain.src  = aSrc[t];
+			for(var i=0;i<aLb.length;i++){
+				aLb[i].className = '';
+			}
+			aLb[t].className = 'active';
+
+		};
+		oPrev.onclick = function(){
+			n<=0? n = aSrc.length:n = n;
+			n--;
+			var t = n%5;
+			oMain.src   = aSrc[t];
+			for(var i=0;i<aLb.length;i++){
+				aLb[i].className = '';
+			}
+			aLb[t].className = 'active';
+		};
+
+		function show(){
+			oSm.src = aSrc[this.index];
+			oSm.style.display = 'block';
+		}
+		function hide(){
+			oSm.style.display = 'none';
+		}
+		for(i=0;i<aLb.length;i++){
+			aLb[i].onmouseover = show;
+		}
+		for(i=0;i<aLb.length;i++){
+			aLb[i].onmouseout = hide;
+		}
+		function Change(){
+			n = this.index;
+			oMain.src = aSrc[this.index];
+			if(this.className =='active'){
+			this.className = '';
+			}else{
+				for(var j=0;j<aLb.length;j++){
+					aLb[j].className = '';
+				}
+				this.className = 'active';
+			}
+		}
+		for(i=0;i<aLb.length;i++){
+			aLb[i].onclick = Change;
+		}
+
+
+	};
+	</script>
+</head>
+<body>
+	<div class='contain'>
+		<p>图片轮播</p>
+		<span id='prev'></span>
+		<img id='main' src="#" alt="1">
+		<span id='next'></span>
+		
+
+		<p>
+			<img id='small' src="#" alt="缩略图">
+			<label></label>
+			<label></label>
+			<label></label>
+			<label></label>
+			<label></label>
+
+		</p>
+
+	</div>
+</body>
+</html>

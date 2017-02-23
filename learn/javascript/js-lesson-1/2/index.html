@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>图片切换</title>
+	<style type="text/css">
+
+form{
+	width:600px;
+	border-top:2px solid black;
+	padding-top:10px;
+	text-align:center;
+	margin:10px auto;}
+	
+#box{
+	position:relative;
+	width:400px;
+	height:400px;
+	border:5px solid gray;
+	text-align:center;
+	margin:10px auto;
+	background-color:#000;
+	display:table; 
+	
+	
+	}	
+#cell{
+	display:table-cell;
+	vertical-align:middle;
+	 }
+img{	
+	max-height:395px;
+	max-width:395px;
+		
+		}
+#back,#up{
+	position:absolute;
+	top:183px;
+	display:block;
+	width:30px;
+	height:30px;
+	border:2px solid #b7b4b4;
+	color:white;
+	opacity:0.3;
+	line-height:30px;
+			
+	}
+#back:hover,#up:hover{
+	opacity:1;
+	}
+#back{
+	left:0;
+	}
+	
+#up{
+	right:0;
+	}
+#ser,#tips{
+	position:absolute;
+	display:block;
+	width:400px;
+	height:30px;
+	color:white;
+	line-height:30px;
+	left:0;}
+#ser{
+	top:0;
+	}
+#tips{
+	bottom:0;
+	}
+	
+	</style>
+	<script type="text/javascript">
+window.onload = function (){
+	var Obtn1 = document.getElementById('btn1');
+	var Obtn2 = document.getElementById('btn2');
+	var Otxt = document.getElementById('txt');
+	var Oser = document.getElementById('ser');
+	var Oback = document.getElementById('back');
+	var Oup = document.getElementById('up');
+	var Otips = document.getElementById('tips');
+	var Oimg = document.getElementById('img');
+	var onoff = true;																				//默认顺序切换
+	var asrc = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg"];
+	var atips = ["游戏美女","机器人cosplay","性感美女","血色樱花"];
+	var i = 0;
+
+	function Tab(){
+		Oimg.src = asrc[i];
+		Oser.innerHTML = i+1 + "/" + asrc.length;
+		Otips.innerHTML = atips[i];
+	}
+
+	Tab();
+	Otxt.innerHTML = "图片只能按照顺序进行切换";
+	
+	Obtn1.onclick = function(){
+		onoff = false;
+		Otxt.innerHTML = "图片可以从最后一张跳转到第一张循环切换";
+		};
+		
+	Obtn2.onclick = function(){
+		onoff = true;
+		Otxt.innerHTML = "图片只能按照顺序进行切换";};
+	
+	Oup.onclick = function (){			
+		i++;
+			if (i > asrc.length-1){
+				if(onoff)
+				{i = asrc.length-1;
+				alert('已经是最后一张了');}
+				else
+				{i = 0;}
+			}
+		Tab();
+	};
+	Oback.onclick = function (){
+		i--;
+		if (i<0){
+			if(onoff)
+			{i =0;
+			alert('已经是第一张了');}
+			else
+			{i = asrc.length-1;}
+		}
+		Tab();
+		
+		};
+
+// 想实现 按比例缩放图片，怎么做 ？
+// 在CSS 里面将图片 的 max-height 设置为400px，同时max-width设置为 400px，然后问题解决啦 
+// 如果图片小于 400*400,那上面的方法是不是会导致 ，浏览框 变小 ？测试一下
+	
+
+};
+	</script>
+</head>
+<body>
+	<form>		
+		<input id="btn1" type="button" value="循环切换" />
+		<input id="btn2" type="button" value="顺序切换" /><br />
+		<p id="txt"></p>		
+	</form>
+	<div id="box">
+		<span id="cell"><img id="img" src="images/1.jpg" alt=""></span>
+		<span id="ser">数量正在计算</span>
+		<span id="back">&lt;</span>
+		<span id="up">&gt;</span>
+		<span id="tips">图片正在加载，请稍后</span>	
+	</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

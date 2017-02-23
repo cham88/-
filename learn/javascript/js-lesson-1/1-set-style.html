@@ -1,0 +1,213 @@
+﻿<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>JS热身练习</title>
+   <style>
+	.wrap{
+		font-size:14px;
+		width:100%;
+		height:800px;
+		margin:0 auto;
+		text-align:center;
+		
+		}
+		
+	.container{		
+		width:60%;
+		height:500px;
+		margin:10px auto;
+	}
+	#mask{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 0.5;
+		background-color: gray;
+		display: none;
+	}
+	#div1{
+		position: absolute;
+		border:3px solid black;
+		top:200px;
+		left:65%;
+		width:250px;
+		display: none;
+		z-index:2;
+
+	}
+	
+	.div2{
+		border:4px solid black;
+		width:50px;
+		height:50px;
+		background:blue;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:20px;
+		}
+	
+	table{
+		margin-left:auto;
+		margin-right:auto;
+		border-style:ridge;
+		border-collapse:collapse;		
+		
+		}
+	th,td{
+		width:100px;
+		border:1px solid black;
+		padding:5px;}
+	.red{
+		background-color:red;}
+	.green{
+		background-color:green;}
+	.blue{
+		background-color:blue;}
+	
+   </style>
+ <script type="text/javascript">   
+ 
+
+window.onload=function(){
+	var i1 = document.getElementById('item1');
+	i1.onmouseover = function (){
+	i1.style.backgroundColor='#808080';}
+	i1.onmouseout = function (){
+	i1.style.backgroundColor='transparent';	};
+		
+	var i2 = document.getElementById('item2');
+	i2.onmouseover = function (){
+	i2.style.backgroundColor='#808080';};
+	i2.onmouseout = function (){
+	i2.style.backgroundColor='transparent';	};
+		
+	var i3 = document.getElementById('item3');
+	i3.onmouseover =function (){
+	i3.style.backgroundColor='#808080';} ;
+	i3.onmouseout = function (){
+	i3.style.backgroundColor='transparent';	} ;
+		
+	var i4 = document.getElementById('item4');
+	i4.onmouseover = function (){
+	i4.style.backgroundColor='#808080';};
+	i4.onmouseout = function (){
+	i4.style.backgroundColor='transparent';	};
+		
+	var i5 = document.getElementById('item5');
+	i5.onmouseover = function (){
+	i5.style.backgroundColor='#808080';} ;
+	i5.onmouseout = function (){
+	i5.style.backgroundColor='transparent';	};
+	
+	var i6 = document.getElementById('item6');
+	i6.onmouseover = function (){
+	i6.style.backgroundColor='#808080';};
+	i6.onmouseout = function (){
+	i6.style.backgroundColor='transparent';	};
+		
+	var ared = document.getElementById('ared');
+	var agreen = document.getElementById('agreen');
+	var ablue = document.getElementById('ablue');
+	
+	ared.onmouseover = function (){
+	ared.style.backgroundColor='#AA0000';};
+	agreen.onmouseover = function (){
+	agreen.style.backgroundColor='#24542D';};
+	ablue.onmouseover = function (){
+	ablue.style.backgroundColor='#180077';}; 
+	ared.onmouseout = function (){
+	ared.style.backgroundColor='red';};
+	agreen.onmouseout = function (){
+	agreen.style.backgroundColor='green';};
+	ablue.onmouseout = function (){
+	ablue.style.backgroundColor='blue';};
+}
+
+	
+ </script>
+</head>
+<body>
+<div class="wrap">
+<div id="mask">
+</div>
+	<p>点击按钮设置样式<input class="btn" id="btn1" type="button" onclick="getbox()" value="点我设置"></p>
+	<div class="div1" id="div1">	
+		<table>
+			<caption>选择样式</caption>
+			<tr>
+				<th>颜色</th>
+				<td class="red item" id="ared" onclick="red()"><label>红</label></td>
+				<td class="green item" id="agreen" onclick="green()"><label>绿</label></td>
+				<td class="blue item" id="ablue" onclick="blue()"><label>蓝<label></td>
+			</tr>
+			<tr>
+				<th>长（px）</th>
+				<td class="item" id="item1" onclick="w100()"><label>100</label></td>
+				<td class="item"  id="item2" onclick="w200()"><label>200</label></td>
+				<td class="item" id="item3" onclick="w300()"><label>300</label></td>
+			</tr>
+			<tr>
+				<th>宽（px）</th>
+				<td class="item" id="item4" onclick="h100()"><label>100</label></td>
+				<td class="item" id="item5" onclick="h200()"><label>200</label></td>
+				<td class="item" id="item6" onclick="h300()" ><label>300</label></td>
+			</tr>
+			<tr>
+				<td class="btn" colspan='2' ><button onclick="back()">恢复</button></td>
+				<td class="btn" colspan='2' ><button onclick="hide()">提交</button></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="container">
+		<div class="div2" id="div2">
+		</div>
+	</div>
+</div>
+<script>
+	var oMask = document.getElementById('mask');
+	var oDiv1 = document.getElementById('div1');
+	var oDiv2 = document.getElementById('div2');
+	function getbox(){	
+		oMask.style.display='block';
+		oDiv1.style.display='block';
+	};	
+	function red(){
+		oDiv2.style.background='red';
+	};
+	function green(){
+		oDiv2.style.background='green';
+	};
+	function blue(){
+		oDiv2.style.background='blue';
+	};
+	function w100(){
+		oDiv2.style.width='100px';
+	};
+	function w200(){
+		oDiv2.style.width='200px';
+	};
+	function w300(){
+	;	oDiv2.style.width='300px';
+	}
+	function h100(){
+		oDiv2.style.height='100px';
+	};
+	function h200(){
+		oDiv2.style.height='200px';
+	};
+	function h300(){
+		oDiv2.style.height='300px';
+	};
+	function back(){
+		oDiv2.style.cssText='';
+	};
+	function hide(){	
+		oMask.style.display='none';
+		oDiv1.style.display = 'none';
+	};
+
+</script>
+</body>
+</html>

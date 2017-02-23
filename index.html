@@ -1,18 +1,190 @@
-<!doctype html>
-<html lang="zh">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>前端学习练习簿</title>
+    <title>cham的前端练习簿</title>
+    <!-- icons -->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css"/>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #00bcd4;
+            font-family: "微软雅黑",sans-serif;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+        }
+        #accordion {
+            width: 100%;
+            max-width: 480px;
+            margin: 30px auto;
+            background: #fff;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        #accordion .link {
+            cursor: pointer;
+            display: block;
+            padding: 15px 15px 15px 42px;
+            color: #555;
+            font-size: 14px;
+            font-weight:bold;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        #accordion li:last-child .link {
+            border-bottom: 0;
+        }
+
+        #accordion li i {
+            position: absolute;
+            top: 16px;
+            left: 12px;
+            font-size: 18px;
+            color: #595959;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        #accordion li i.fa-chevron-down {
+            right: 12px;
+            left: auto;
+            font-size: 16px;
+        }
+
+        #accordion li.open .link {
+            background: #444359;
+            color: #fff;
+        }
+
+        #accordion li.open i {
+            color: #fff;
+        }
+        #accordion li.open i.fa-chevron-down {
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+        .menu {
+            display: none;
+            background: #00838f;
+            font-size: 14px;
+        }
+
+        .menu li {
+            border-bottom: 1px solid #4b4a5e;
+        }
+
+        .menu a {
+            display: block;
+            text-decoration: none;
+            color: #f4f4f4;
+            padding: 12px 12px 12px 42px;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .menu a:hover {
+            background: #71a73d;
+            color: #fff;
+        }
+    </style>
+    <script>
+        $(function() {
+            var Accordion = function(el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
+                var links = this.el.find('.link');
+
+                links.on('click',{el: this.el, multiple: this.multiple}, this.dropdown)
+            };
+
+            Accordion.prototype.dropdown = function(e) {
+                var $el = e.data.el,
+                    $this = $(this),
+                    $next = $this.next();
+
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
+
+                if (!e.data.multiple) {
+                    $el.find('.menu').not($next).slideUp().parent().removeClass('open');
+                }
+            };
+
+            var accordion = new Accordion($('#accordion'), false);
+        });
+    </script>
 </head>
 <body>
-<ul>
+<ul id="accordion">
     <li>
-        <h2>一、HTML与CSS基础练习</h2>
-        <dl>
-            <dd><a href="learn/lesson-1/1" target="_blank">简单的企业页面</a></dd>
-            <dd>电子商务网站模块化布局</dd>
-        </dl>
-
+        <div class="link">
+            <i class="fa fa-code"></i>HTML&CSS<i class="fa fa-chevron-down"></i>
+        </div>
+        <ul class="menu">
+            <li><a href="learn/html&css/1" target="_blank" title="简单的企业网站">简单的企业网站</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="link">
+            <i class="fa fa-book"></i>JavaScript第一课<i class="fa fa-chevron-down"></i>
+        </div>
+        <ul class="menu">
+            <li><a href="learn/javascript/js-lesson-1/1-set-style.html" title="属性操作" target="_blank">属性操作</a></li>
+            <li><a href="learn/javascript/js-lesson-1/2" title="点击换图" target="_blank">点击换图</a></li>
+            <li><a href="learn/javascript/js-lesson-1/3" title="模拟手机短信发送" target="_blank">模拟手机短信发送</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="link">
+            <i class="fa fa-book"></i>JavaScript第二课<i class="fa fa-chevron-down"></i>
+        </div>
+        <ul class="menu">
+            <li><a target="_blank" title="自动生成10个LI-只能用定位实现（基础版）" href="learn/javascript/js-lesson-2/自动生成10个LI-只能用定位实现（基础版）.html">自动生成10个li-只能用定位实现（基础版）</a></li>
+            <li><a target="_blank" title="自动生成100个LI-只能用定位实现（提高版）" href="learn/javascript/js-lesson-2/自动生成100个LI-只能用定位实现（提高版）.html">自动生成100个li-只能用定位实现（提高版）</a></li>
+            <li><a target="_blank" title="自动生成V字型-只能用定位实现（基础版）" href="learn/javascript/js-lesson-2/自动生成V字型-只能用定位实现（基础版）.html">自动生成V字型-只能用定位实现（基础版）</a></li>
+            <li><a target="_blank" title="自动生成V字型-只能用定位实现（提高版）" href="learn/javascript/js-lesson-2/自动生成V字型-只能用定位实现（提高版）.html">自动生成V字型-只能用定位实现（提高版）</a></li>
+            <li><a target="_blank" title="使用for循环擦出图片" href="learn/javascript/js-lesson-2/for的图片生成应用.html">使用for循环擦出图片</a></li>
+            <li><a target="_blank" title="弹出层" href="learn/javascript/js-lesson-2/弹出层">弹出层</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="link">
+            <i class="fa fa-book"></i>JavaScript第三课<i class="fa fa-chevron-down"></i>
+        </div>
+        <ul class="menu">
+            <li><a target="_blank" href="learn/javascript/js-lesson-3/带缩略图的图片切换效果.html" title="带缩略图的图片切换">带缩略图的图片切换</a></li>
+            <li><a target="_blank" href="learn/javascript/js-lesson-3/QQ列表展开收缩扩展.html" title="QQ列表展开收缩">QQ列表展开收缩</a></li>
+            <li><a target="_blank" href="learn/javascript/js-lesson-3/控制多组图片切换.html" title="控制多组图片切换">控制多组图片切换</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="link">
+            <i class="fa fa-book"></i>JavaScript第四课<i class="fa fa-chevron-down"></i>
+        </div>
+        <ul class="menu">
+            <li><a target="_blank" href="learn/javascript/js-lesson-4/判断QQ号码.html" title="判断QQ号码">判断QQ号码</a></li>
+            <li><a target="_blank" href="learn/javascript/js-lesson-4/找到合适的值.html" title="找到合适的值">QQ列表展开收缩</a></li>
+        </ul>
     </li>
 </ul>
 </body>

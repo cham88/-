@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>作业：for的图片生成应用</title>
+	
+	<style type="text/css">
+	div,img{margin: 0;padding: 0;}
+	#content{
+		position: absolute;
+		border:1px solid black;
+		background-color:#f1f1f1;
+		width:510px;
+		height: 510px;
+		overflow: hidden;
+	}
+
+	</style>
+	
+
+<script type="text/javascript">
+window.onload = function(){
+	var oCon = document.getElementById('content');
+	var str ='';
+	var aDiv = document.getElementsByTagName('div');
+	for(var i =1;i<101;i++){
+		str += '<div>' + '</div>';
+		oCon.innerHTML += str;
+		aDiv[i].style.cssText= 'position:absolute;width:51px;height:51px;background:gray;';
+		aDiv[i].style.left = (i-1)%10*51 +'px';
+		aDiv[i].style.top = Math.floor((i-1)/10)*51+"px";
+	}
+	for(var j=1;j<aDiv.length;j++){
+		aDiv[j].onmouseover = function(){
+			this.style.cssText = 'position:absolute;width:51px;height:51px;';
+		};
+	}
+
+};
+
+
+
+
+
+</script>
+	
+</head>
+<body>
+	<div id='content'>
+		<img src="pic.jpg" />	
+	</div>
+
+</body>
+</html>

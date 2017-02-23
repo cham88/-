@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>控制多组图片切换</title>
+	<style>
+		#main {
+			position: relative;
+			background: url(imgs/3_bg.gif) no-repeat center center;
+			height: 600px;
+			width: 900px;
+			margin: 0 auto;
+			background-color: white;
+			text-align: center;
+		}
+		
+		#ctrl {
+			position: absolute;
+			top: 80px;
+			left: 35px;
+		}
+		
+		#prev_group,
+		#next_group {}
+		
+		#left {
+			width: 448px;
+			height: 245px;
+			background-color: red;
+			position: absolute;
+			top: 138px;
+			left: 63px;
+		}
+		
+		#l {}
+		
+		.tip {
+			font-weight: bold;
+			font-size: 14px;
+			line-height: 20px;
+			margin-top: 4px;
+		}
+		
+		.page {
+			float: left;
+			font-size: 14px;
+			line-height: 20px;
+		}
+		
+		#right {
+			width: 248px;
+			height: 245px;
+			background-color: green;
+			position: absolute;
+			top: 138px;
+			right: 79px;
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		var oPrev = document.getElementById('prev_group');
+		var oNext = document.getElementById('next_group');
+		var oImgl = document.getElementById('l');
+		var oImgr = document.getElementById('r');
+		var aP = document.getElementsByClassName('tip');
+		var aPage = document.getElementsByClassName('page');
+		var src_L = [
+					'imgs/pic/coffee.jpg',
+					'imgs/pic/girl.jpg',
+					'imgs/pic/lake.jpg',
+					'imgs/pic/little-girl.jpg',
+					'imgs/pic/pavilion.jpg',
+					'imgs/pic/watch.jpg'
+					];
+		var aText_L = [
+					'coffee',
+					'girl',
+					'lake',
+					'little-girl',
+					'pavilion',
+					'watch'
+					]; 
+		var src_R = [
+					'imgs/pic/boy.jpg',
+					'imgs/pic/flower.jpg',
+					'imgs/pic/fruit.jpg'
+					];
+		var aText_R = [
+					'boy',
+					'flower',
+					'fruit'
+					];
+
+		var n = oImgl.num = 0;
+		var r = oImgr.num = 0;
+		aP[0].innerHTML = '第一组图片中的：'+aText_L[0];
+		aP[1].innerHTML = '第一组图片中的：'+aText_R[0];
+		oImgl.onclick = function(){	
+			n++;
+			var t = n%src_L.length;
+			this.src = src_L[t];
+			aP[0].innerHTML = '第一组图片中的：'+aText_L[t];
+			aPage[0].innerHTML = (t+1) +'/'+ src_L.length;
+		};	
+		oImgr.onclick = function(){	
+			r++;
+			var t = r%src_R.length;
+			this.src = src_R[t];
+			aP[1].innerHTML = '第一组图片中的：'+aText_R[t];
+			aPage[1].innerHTML = (t+1) +'/'+ src_R.length;
+		};
+		//下一组
+		oNext.onclick = function(){
+			n++;
+			r++;
+			var t = n%src_L.length;
+			oImgl.src = src_L[t];
+			aP[0].innerHTML = '第一组图片中的：'+aText_L[t];
+			aPage[0].innerHTML = (t+1) +'/'+ src_L.length;
+			var m = r%src_R.length;
+			oImgr.src = src_R[m];
+			aP[1].innerHTML = '第一组图片中的：'+aText_R[m];
+			aPage[1].innerHTML = (m+1) +'/'+ src_R.length;
+
+		};
+		//上一组
+		oPrev.onclick = function(){
+			n--;
+			if(n<0){n = src_L.length;}
+			r--;
+			if(r<0){r = src_R.length;}
+			var t = n%src_L.length;
+			oImgl.src = src_L[t];
+			aP[0].innerHTML = '第一组图片中的：'+aText_L[t];
+			aPage[0].innerHTML = (t+1) +'/'+ src_L.length;
+			var m = r%src_R.length;
+			oImgr.src = src_R[m];
+			aP[1].innerHTML = '第二组图片中的：'+aText_R[m];
+			aPage[1].innerHTML = (m+1) +'/'+ src_R.length;
+
+
+		};
+
+
+		
+
+	};		
+	</script>
+	
+</head>
+
+<body>
+	<div id="main">
+		<div id="ctrl">
+			<input id="prev_group" type="button" name="prev" value="上一组" />
+			<input id="next_group" type="button" name="next" value="下一组" />
+		</div>
+		<div id="left">
+			<img id="l" src="imgs/pic/coffee.jpg" alt="coffee">
+			<p class="tip">第一组第1张图片</p>
+			<span class="page">1/6</span>
+		</div>
+		<div id="right">
+			<img id="r" src="imgs/pic/boy.jpg" alt="boy">
+			<p class="tip">第二组第1张图片</p>
+			<span class="page">1/3</span></span>
+		</div>
+	</div>
+</body>
+
+</html>

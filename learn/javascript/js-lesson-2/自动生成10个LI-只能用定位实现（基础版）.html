@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>自动生成10个LI-只能用定位实现（基础版）</title>
+<style type='text/css'>
+/*li{
+	border:1px solid black;
+	width:50px;
+	height:50px;
+	list-style:none;
+	text-align:center;
+	line-height:50px;
+	display:inline-block;
+	margin-left:10px;
+	}
+*/
+</style>
+<script type="text/javascript">
+window.onload = function(){
+var oBtn = document.getElementById('btn');
+var oUl = document.getElementById('list');
+var onoff = true ;
+var oLi = document.getElementsByTagName('li');
+oBtn.onclick = function(){
+	if(onoff)
+	{		
+	for(var i =0;i<10;i++)
+		{	
+			oUl.innerHTML += '<li>'+ i + '</li>';
+			oLi[i].style.cssText= 'border:1px solid black;position:absolute;width:50px;height:50px;list-style:none;text-align:center;line-height:50px;';
+			oLi[i].style.left = 10+ i*60 +'px';
+			switch(i%4)
+			{
+			case 0 :oLi[i].style.backgroundColor = 'red';
+			break;
+			case 1 :oLi[i].style.backgroundColor = 'yellow';
+			break;
+			case 2 :oLi[i].style.backgroundColor = 'blue';
+			break;
+			case 3 : oLi[i].style.backgroundColor = 'green';
+			}
+			
+				}
+
+	}
+	onoff = false; 
+
+
+}
+
+
+
+
+
+
+
+}
+
+
+
+</script>
+
+</head>
+<body>
+<hr />
+<input id="btn"  type="button" value="自动生成10个LI" />
+<ul id='list'>
+
+</ul>
+
+</body>
+
+</html>

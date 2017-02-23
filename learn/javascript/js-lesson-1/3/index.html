@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" >
+<title>模拟手机短信发送</title>
+<style type="text/css">
+
+*{
+	margin:0;
+	padding:0;}
+li{
+	list-style:none;
+	clear: both;
+}
+
+#wrap{
+	height: 448px;
+	width: 221px;
+	background:url(1.gif) no-repeat;
+	margin:20px auto;
+	border-radius: 35px;
+	font-size:12px;
+		}
+
+#box1{
+	position:relative;
+	top:55px;
+	left:15px;
+	height:294px;
+	width:190px;
+	border-bottom:1px solid #aaa;
+	overflow:auto;
+	
+	
+	}
+#box2{
+	width:190px;
+	height:42px;
+	margin-top: 54px;
+    margin-left: 15px;
+	position:relative;
+	}
+
+#txt{
+	width:114px;
+	height:30px;
+	border:1px solid #aaa;
+	border-radius:5px;
+	position:absolute;
+	top:6px;
+	}
+#btn{
+	display:inline-block;
+	width:36px;
+	height:30px;
+	background-color:#ddd;
+	color:white;
+	
+	text-align:center;
+	line-height:30px;
+	border:1px solid #ddd;
+	border-radius:5px;
+	margin-right:1px;
+	margin-top:6px;
+	float:right;
+		}
+#icon{
+	height:30px;
+	width:30px;
+	margin:6px 1px;
+	border:1px solid #aaa;
+	border-radius:5px;
+	display:inline-block;
+
+	}
+p{
+	max-width:120px;
+	margin:5px;
+	padding:5px;
+	border-radius:5px;
+	
+	word-break: break-all;
+	}
+.bg1 {
+	background-color:#77d6f1;               
+	float:left;
+	}
+ #icon1{
+	float:left;
+}
+.bg2 {
+	background-color:#feafbc;
+	float:right;
+	}
+#icon2{
+	float:right;} 
+</style>
+
+<script type="text/javascript">
+window.onload = function (){
+	var Oicon = document.getElementById('icon');
+	var Obtn = document.getElementById('btn');
+	var Otxt = document.getElementById('txt');
+	var Obox1 = document.getElementById('box1');
+	var Olist = document.getElementById('list');
+	var OFF = true;									// 开关
+
+	Oicon.onclick = function (){
+		//点击切换图片，两个图片轮流切换
+		if (OFF){	
+		Oicon.innerHTML="<img id='icon2' src='icon2.gif'/>";	
+		}else{
+		Oicon.innerHTML="<img id='icon1' src='icon1.gif'/>";
+		}
+		OFF = !OFF;
+	};
+
+	Otxt.oninput = function(){						//input里面输入内容时，触发下列事件
+		if (Otxt.value.length>0){
+			Obtn.style.backgroundColor=('#3385ff');   //input里面有输入内容时，使 发送 变蓝色
+		}else{
+			Obtn.style.backgroundColor=('#ddd');
+			//没内容，变成灰色
+		}
+	};
+
+	Obtn.onmousedown = function(){	
+		if(Otxt.value.length>0){
+			Obtn.style.backgroundColor=('#1b64d2');//有文字时，按下发送，颜色加深，同时清空input里面的内容
+			if (OFF){
+				Olist.innerHTML=Olist.innerHTML+'<li>'+Oicon.innerHTML+'<p class="bg1">'+Otxt.value+'</p>'+'<br />'+'</li>';
+				//将input的value 写到 box1 里面
+			}else{
+				Olist.innerHTML=Olist.innerHTML+'<li>'+Oicon.innerHTML+'<p class="bg2 ">'+Otxt.value+'</p>'+'<br />'+'</li>';
+				//将input的value 写到 box1 里面
+			}
+		}
+		Obox1.scrollTop = Obox1.scrollHeight;
+	};
+	Obtn.onmouseup = function(){
+		Obtn.style.backgroundColor=('#ddd'); //松开鼠标，又变成灰色
+		Otxt.value = "";                      //清空input，
+	};
+		
+};
+</script>
+</head>
+<body>
+	<div id="wrap">
+	<div id="box1">
+		<ul id='list'>			
+		</ul>	
+	</div>
+	<div id="box2">
+	<form>
+	<div id="icon"><img id='icon1' src="icon1.gif"/></div>
+	<input id="txt" type="text" />
+	<label  id="btn">发送</label>
+	</form>
+	</div>
+</div>
+</body>
+</html>

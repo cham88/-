@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ列表展开收缩扩展</title>
+<style>
+	ul,h3,li{
+		margin:0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	#list{
+		border: 1px solid black;
+		width: 240px;
+		margin: 0 auto;
+
+	}
+	#list ul{
+		border-bottom: 1px solid black;
+		text-indent: 20px;
+		line-height: 30px;
+		display: none;
+		}
+
+	#list h3 {
+		height: 30px;
+		line-height: 30px;
+		text-indent: 20px;
+		background: #22aec7 url(imgs/icon2.png) 3px 9px no-repeat;
+	}
+
+
+	#list .active{
+		background-color: #71efdc;
+		background-image: url(imgs/icon1.png);
+	}
+	#list ul .hover{
+		background-color:#71efdc;
+	} 
+
+</style>
+
+<script>
+window.onload = function () {
+	var oUl = document.getElementById('list');
+	var aH3 = oUl.getElementsByTagName('h3');
+	var aUl = oUl.getElementsByTagName('ul');
+	var aLi = null;
+	var arrLi = [];
+//通过循环为所有的h3加上点击事件
+	for (var i = 0; i < aH3.length; i++) {
+		aH3[i].index = i;		//自定义属性
+
+		aH3[i].onclick = function(){
+			if(this.className === ''){
+			//class为空时，执行
+				for (var i = 0; i < aH3.length; i++) {
+					aH3[i].className = '';//清空所有h3上的class
+
+					aUl[aH3[i].index].style.display = 'none';//所有的ul隐藏
+				}
+				this.className = 'active';//当前h3加上class
+				aUl[this.index].style.display = 'block';//显示当前h3下的ul
+			}else{
+			//存在class时执行
+				this.className = '';//清空class
+				aUl[this.index].style.display = 'none';//隐藏当前h3下的ul
+			}
+		};
+	}
+
+	//好友分组也是用li写的，所以通过for循环将所有分组内的好友li，全部放在一个数组中，然后for逐一添加事件
+	for(i=0;i<aUl.length;i++){
+		aLi = aUl[i].getElementsByTagName('li'); 
+		for(var j=0;j<aLi.length;j++){
+			arrLi.push(aLi[j]);
+		}
+	}
+	//也可以通过DOM获取元素
+
+	for(i=0;i<arrLi.length;i++){
+		arrLi[i].onclick = function Choose(){
+			if(this.className =='hover'){
+				this.className = '';
+			}else{
+				for(var i=0;i<arrLi.length;i++){
+					arrLi[i].className = '';
+				}
+				this.className = 'hover';
+			}
+		};
+	}
+
+
+};
+</script>
+</head>
+<body>
+<ul id='list'>
+	<li class='lis'>
+		<h3>我的好友</h3>
+		<ul>
+			<li>王尔德</li>
+			<li>李四立</li>
+			<li>尼玛拉风</li>
+			<li>戈尔德曼</li>
+			<li>Nissan</li>
+			<li>snoopy</li>
+		</ul>
+	</li>
+	<li class='lis'>
+		<h3>企业好友</h3>
+		<ul>
+			<li>张昭</li>
+			<li>李小宽</li>
+			<li>和大师</li>
+			<li>格尔桑</li>
+		</ul>
+	</li>
+	<li class='lis'>
+		<h3>黑名单</h3>
+		<ul>
+			<li>野子</li>
+			<li>上渝</li>
+			<li>老四</li>
+		</ul>
+	</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方法一：使用背景图片</title>
+    <style>
+        label,input{
+            margin: 0;
+            padding: 0;
+        }
+        #checkbox input,#radio input{
+            display: none;
+        }
+        label i{
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+        }
+
+        #checkbox input+i{
+            background: url('99322cf8c3283e42.png') -24px -31px no-repeat;
+        }
+        #checkbox input:checked+i{
+            background: url('99322cf8c3283e42.png') -59px  -31px no-repeat;
+        }
+        #radio input+i{
+            background: url('99322cf8c3283e42.png') -24px -10px no-repeat;
+        }
+        #radio input:checked+i{
+            background: url('99322cf8c3283e42.png') -59px  -10px no-repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+<div>
+    <p>默认样式</p>
+    <div>
+        <p><label><input type="radio"  value="radio">radio的默认样式</label></p>
+        <p><label><input type="checkbox"  value="checkbox">checkbox的默认样式</label></p>
+    </div>
+    <p>自定义的checkbox</p>
+    <div id="checkbox">
+        <p><label><input type="checkbox" name="checkbox" value="HTML" ><i></i>HTML</label></p>
+        <p><label><input type="checkbox" name="checkbox" value="CSS" checked ><i></i>CSS</label></p>
+        <p><label><input type="checkbox" name="checkbox" value="JAVASCRIPT" ><i></i>JAVASCRIPT</label></p>
+    </div>
+    <p>自定义的radio</p>
+    <div id="radio">
+        <p><label><input type="radio" name="radio" value="HTML"><i></i>HTML</label></p>
+        <p><label><input type="radio" name="radio" value="CSS"><i></i>CSS</label></p>
+        <p><label><input type="radio" name="radio" value="JAVASCRIPT" checked><i></i>JAVASCRIPT</label></p>
+    </div>
+</div>
+</body>
+</html>

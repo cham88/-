@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方法二：使用伪元素</title>
+    <style>
+        label,input{
+            margin: 0;
+            padding: 0;
+        }
+        #checkbox input,#radio input{
+            display: none;
+        }
+
+        #checkbox label::before,#radio label::before{
+            color: #fff;
+            background: #fff;
+            display: inline-block;
+            height: 14px;
+            width: 14px;
+            line-height:14px;
+            text-align: center;
+        }
+        #checkbox label::before{
+            content: '√'; /* 与背景同色的，如何为空选中时会抖动*/
+            border: 1px solid #464646;
+        }
+
+        #checkbox input:checked+label::before{
+            content: '√';
+            border: 1px solid #d73d32;
+            color: #d73d32;
+        }
+
+
+        #radio label::before{
+            content: '●';
+            border: 1px solid #464646;
+            -webkit-border-radius:50%;
+            -moz-border-radius:50%;
+            border-radius:50%;
+        }
+
+        #radio input:checked+label::before{
+            content: '●';
+            border: 1px solid #d73d32;
+            color: #d73d32;
+        }
+    </style>
+
+</head>
+
+<body>
+<div>
+    <p>默认样式</p>
+    <div>
+        <p><label><input type="radio"  value="radio">radio的默认样式</label></p>
+        <p><label><input type="checkbox"  value="checkbox">checkbox的默认样式</label></p>
+    </div>
+    <p>自定义的checkbox</p>
+    <div id="checkbox">
+        <p><input type="checkbox"  checked name="checkbox" value="HTML" id="checkbox_html"><label for="checkbox_html">HTML</label></p>
+        <p><input type="checkbox" name="checkbox" value="CSS" id="checkbox_css"><label for="checkbox_css">CSS</label></p>
+        <p><input type="checkbox" name="checkbox" value="JAVASCRIPT" id="checkbox_js"><label for="checkbox_js">JAVASCRIPT</label></p>
+    </div>
+    <p>自定义的radio</p>
+    <div id="radio">
+        <p><input type="radio" name="radio" value="HTML" id="radio_html"><label for="radio_html">HTML</label></p>
+        <p><input type="radio" checked name="radio" value="CSS" id="radio_css"><label for="radio_css">CSS</label></p>
+        <p><input type="radio" name="radio" value="JAVASCRIPT" id="radio_js"><label for="radio_js">JAVASCRIPT</label></p>
+    </div>
+</div>
+</body>
+</html>

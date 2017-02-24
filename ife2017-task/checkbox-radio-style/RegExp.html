@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式之入门</title>
+    <script>
+        window.onload = function(){
+
+            var oTelNum = document.getElementById('tel_num');
+            var oWord = document.getElementById('word');
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+
+            /*
+               * 移动号段：
+               * 134 135 136 137 138 139 147 150 151 152 157 158 159 178 182 183 184 187 188
+               * 联通号段：
+               * 130 131 132 145 155 156 171 175 176 185 186
+               * 电信号段：
+               * 133 149 153 173 177 180 181 189
+               * 虚拟运营商:
+               * 170
+               *
+               * 13[0-9]
+               * 14[579]
+               * 15[0-35-9] 没有154开头的号码
+               * 17[0135678] 没有172、174、179
+               * 18[0-9]
+            */
+
+            var reg_telNum = /^((\+86)?1([38]\d)|(5[^4])|(4[579])|7[0135678])\d{8}$/;
+            var reg_word = /(\b\w+\b) \1/i;
+
+            oBtn1.onclick = function (){
+                alert(reg_telNum.test(oTelNum.value));
+            };
+            oBtn2.onclick = function (){
+                alert(reg_word.test(oWord.value));
+            };
+        };
+    </script>
+    <style>
+        pre{
+            background: #cccccc;
+            width:480px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <label for="tel_num">判断给定数字是否为手机号码（中国大陆）:</label>
+    <input type="text" id="tel_num">
+    <input id="btn1" type="button" value="判断">
+</p>
+<p>
+    <label for="word">判断输入的字符串是否有相邻重复单词:</label>
+    <input type="text" id="word">
+    <input id="btn2" type="button" value="判断">
+</p>
+<pre>
+    <code>
+        window.onload = function(){
+
+            var oTelNum = document.getElementById('tel_num');
+            var oWord = document.getElementById('word');
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+
+            /*
+               * 移动号段：
+               * 134 135 136 137 138 139 147 150 151 152 157 158 159 178 182 183 184 187 188
+               * 联通号段：
+               * 130 131 132 145 155 156 171 175 176 185 186
+               * 电信号段：
+               * 133 149 153 173 177 180 181 189
+               * 虚拟运营商:
+               * 170
+               *
+               * 13[0-9]
+               * 14[579]
+               * 15[0-35-9] 没有154开头的号码
+               * 17[0135678] 没有172、174、179
+               * 18[0-9]
+            */
+
+            var reg_telNum = /^((\+86)?1([38]\d)|(5[^4])|(4[579])|7[0135678])\d{8}$/;
+            var reg_word = /(\b\w+\b) \1/i;
+
+            oBtn1.onclick = function (){
+                alert(reg_telNum.test(oTelNum.value));
+            };
+            oBtn2.onclick = function (){
+                alert(reg_word.test(oWord.value));
+            };
+        };
+    </code>
+</pre>
+</body>
+</html>

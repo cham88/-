@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务三：三栏式布局之方法三——使用margin负值</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, blockquote {
+            margin: 0;
+            padding: 0;
+        }
+        body, #left div,#right div,#main {
+            padding: 20px;
+            margin: 0;
+        }
+
+        #container,#left div,#right div,#main {
+            border: 1px solid #999;
+        }
+        a {
+            display: block;
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+        }
+        img {
+            width: 80px;
+            height: 80px;
+            border: none;
+        }
+        #left div{
+            width: 200px;
+        }
+        #left div::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #left h3 {
+            width: 78px;
+            float: right;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #left img {
+            float: left;
+        }
+        #right div{
+            width: 120px;
+        }
+        .right a:last-of-type {
+            margin: 0;
+        }
+        #container{
+            padding:20px;
+            float: left;
+            width:100%;
+            height:100%;
+            background: #eee;
+        }
+        #main{
+            margin-left: 220px;
+            margin-right: 140px;
+        }
+        #left{
+            float: left;
+            padding:20px 0 0 20px;
+            margin-left:-100%;
+        }
+        #right{
+            float: left;
+            padding:20px 20px 0 0;
+            margin-left:-140px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="main">
+            <blockquote>
+            <h3>为学一首示子侄</h3>
+            <p>
+                天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。<br>
+                人之为学有难易乎？学之，则难者亦易矣；不学，则易者亦难矣。
+            </p>
+            <p>
+                吾资之昏，不逮人也；吾材之庸，不逮人也；旦旦而学之，久而不怠焉，迄乎成，而亦不知其昏与庸也。<br>
+                吾资之聪，倍人也；吾材之敏，倍人也；屏弃而不用，其与昏与庸无以异也。<br>
+                圣人之道，卒于鲁也传之。然则昏庸聪敏之用，岂有常哉？
+            </p>
+            <p>
+                蜀之鄙有二僧：其一贫，其一富。<br>
+                贫者语于富者曰：“吾欲之南海，何如？”<br>
+                富者曰：“子何恃而往？”<br>
+                曰：“吾一瓶一钵足矣。”<br>
+                富者曰：“吾数年来欲买舟而下，犹未能也。子何恃而往？”<br>
+                越明年，贫者自南海还，以告富者，富者有惭色。
+            </p>
+            <p>
+                西蜀之去南海，不知几千里也。僧富者不能至而贫者至焉。人之立志，顾不如蜀鄙之僧哉？<br>
+                是故聪与敏，可恃而不可恃也，自恃其聪与敏而不学者，自败者也。<br>
+                昏与庸，可限而不可限也；不自限其昏与庸而力学不倦者，自力者也。
+            </p>
+        </blockquote>
+        </div>
+    </div>
+    <div id="left">
+        <div>
+            <img src="../Head-First-HTML-CSS(2).gif" alt="html-css">
+            <h3>为学</h3>
+        </div>
+    </div>
+    <div id="right">
+        <div>
+            <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+            <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+            <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+            <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+        </div>
+    </div>
+<!--
+ 此方法相比自身浮动、和绝对定位 ，结构上要复杂一些，
+ 实现过程：
+ 首先，中间的主体要使用双层标签。
+ 外层div宽度100%显示，并且浮动（本例左浮动，下面所述依次为基础），
+ 内层div为真正的主体内容，含有左右一定像素的margin值（给左右栏预留空间）。
+ 左栏与右栏都是采用margin负值定位的，
+ 左栏左浮动，margin-left为-100%，由于前面的div宽度100%与浏览器，所以这里的-100%margin值正好使左栏div定位到了页面的左侧；
+ 右侧栏也是左浮动，其margin-left也是负值，大小为其本身的宽度即140像素。
+
+ 本例子中，由于左右栏距离外边距有一定距离，所有各加了一个包裹层，并对其设置了padding
+
+ 需要注意几个div的顺序，无论是左浮动还是右浮动，先是主体部分div，这是肯定的，至于左右两栏谁先谁后，都无所谓
+-->
+</body>
+</html>

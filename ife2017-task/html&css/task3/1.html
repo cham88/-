@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务三：三栏式布局之方法一——自身浮动</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, blockquote {
+            margin: 0;
+            padding: 0;
+        }
+        body, div {
+            padding: 20px;
+            margin: 0;
+        }
+        div {
+            border: 1px solid #999;
+        }
+        a {
+            display: block;
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+        }
+        div img {
+            width: 80px;
+            height: 80px;
+            border: none;
+        }
+        #content {
+            background: #eee;
+        }
+        .left{
+            width: 200px;
+        }
+        .left h3 {
+            width: 78px;
+            float: right;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .left img {
+            float: left
+        }
+        .right{
+            width: 120px;
+        }
+        .right a:last-of-type {
+            margin: 0;
+        }
+/* 以下为实现三栏布局的关键样式 */
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .main {
+            margin-left: 220px;
+            margin-right: 140px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <div class="left">
+        <img src="../Head-First-HTML-CSS(2).gif" alt="html-css">
+        <h3>为学</h3>
+    </div>
+    <div class="right">
+        <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+        <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+        <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+        <a href="#"><img src="../Head-First-HTML-CSS(2).gif" alt="html-css"></a>
+    </div>
+    <div class="main">
+        <blockquote>
+            <h3>为学一首示子侄</h3>
+            <p>
+                天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。<br>
+                人之为学有难易乎？学之，则难者亦易矣；不学，则易者亦难矣。
+            </p>
+            <p>
+                吾资之昏，不逮人也；吾材之庸，不逮人也；旦旦而学之，久而不怠焉，迄乎成，而亦不知其昏与庸也。<br>
+                吾资之聪，倍人也；吾材之敏，倍人也；屏弃而不用，其与昏与庸无以异也。<br>
+                圣人之道，卒于鲁也传之。然则昏庸聪敏之用，岂有常哉？
+            </p>
+            <p>
+                蜀之鄙有二僧：其一贫，其一富。<br>
+                贫者语于富者曰：“吾欲之南海，何如？”<br>
+                富者曰：“子何恃而往？”<br>
+                曰：“吾一瓶一钵足矣。”<br>
+                富者曰：“吾数年来欲买舟而下，犹未能也。子何恃而往？”<br>
+                越明年，贫者自南海还，以告富者，富者有惭色。
+            </p>
+            <p>
+                西蜀之去南海，不知几千里也。僧富者不能至而贫者至焉。人之立志，顾不如蜀鄙之僧哉？<br>
+                是故聪与敏，可恃而不可恃也，自恃其聪与敏而不学者，自败者也。<br>
+                昏与庸，可限而不可限也；不自限其昏与庸而力学不倦者，自力者也。
+            </p>
+        </blockquote>
+    </div>
+</div>
+</body>
+</html>

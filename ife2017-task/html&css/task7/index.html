@@ -8,7 +8,7 @@
 <body>
 <div id="wrap">
     <!-- 页头 START -->
-    <div class="header">
+    <div id="header" class="header">
         <h1 class="logo fl"><a href="#">新世界</a></h1>
         <a id="login" class="fr">登录</a>
         <ul class="nav fr">
@@ -70,24 +70,20 @@
                 <p class="tips">每个城市的有不同的活动信息，请自主查询您所需要了解的城市</p>
             </div>
             <div class="search-box">
-                <!-- 模拟下拉菜单未完成 -->
-                <div class="country fl">
-                    <div>
-                        <input type="text" placeholder="国家"><i class="list-btn"></i>
+                <div class="select-box country fl">
+                    <div class="select">
+                        <span>中国</span><i class="list-btn"></i>
                     </div>
                     <ul class="list">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>中国</li>
+                        <li>美国</li>
                     </ul>
                 </div>
-                <div class="province fl">
-                    <div>
-                        <input type="text"><i class="list-btn"></i>
+                <div class="select-box province fl">
+                    <div class="select">
+                        <span>省份</span><i class="list-btn"></i>
                     </div>
-                    <ul class="list">
+                    <ul class="list" style="display: block;" >
                         <li>北京市</li>
                         <li>天津市</li>
                         <li>河北省</li>
@@ -96,9 +92,9 @@
                         <li>辽宁省</li>
                     </ul>
                 </div>
-                <div class="city fl">
-                    <div>
-                        <input type="text"><i class="list-btn"></i>
+                <div class="select-box city fl">
+                    <div class="select">
+                        <span>城市</span><i class="list-btn"></i>
                     </div>
                     <ul class="list">
                         <li></li>
@@ -177,7 +173,7 @@
                 </p>
                 <a class="more" href="#">更多详情</a>
                 <ul class="circle_btn">
-                    <li></li>
+                    <li class="select"></li>
                     <li></li>
                     <li></li>
                 </ul>
@@ -185,11 +181,14 @@
             <div class="fl part_3">
                 <p>新时代</p>
                 <p>关于爱生活的我们</p>
+                <span></span>
                 <a class="more" href="#">查看更多</a>
             </div>
             <div class="fl part_4">
+                <div class="triangle"></div>
                 <p>新时代</p>
                 <p>关于爱生活的我们</p>
+                <span></span>
                 <a class="more" href="#">查看更多</a>
             </div>
             <div class="fl part_5">
@@ -197,17 +196,76 @@
                 <img src="images/about-img-2.jpg" alt="girl">
             </div>
         </div>
-        <div class="join"></div>
+        <div class="join clear">
+            <div class="join-title">
+                <h5>成为我们的志愿者</h5>
+                <span></span>
+                <p>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情<br>
+                    那就不要犹豫，快来加入我们，成为改变所有人生活的人</p>
+            </div>
+            <div class="join-tips fl">
+                <div>
+                    <h6>新世界志愿者协议</h6>
+                    <p>加入新世界志愿者的人员必须遵守中华人民共共和国的
+                        相关法律法规，并且本着平等资源的原则 ......</p>
+                    <a class="join-tips-more">more</a>
+                </div>
+                <div>
+                    <h6>新世界志愿者权利</h6>
+                    <p>新世界志愿者享受新世界内部所有资源共享的权利，并
+                        且享受所在四新世界活动的优先参与资格</p>
+                    <a class="join-tips-more">more</a>
+                </div>
+                <div>
+                    <h6>更多条款</h6>
+                    <p></p>
+                    <a class="join-tips-more">more</a>
+                </div>
+            </div>
+            <div class="join-table fr">
+                <label>
+                    <input placeholder="姓名：" id="name" type="text">
+                </label>
+                <label>
+                    <input placeholder="年龄:" id="age" type="text">
+                </label>
+                <label>
+                    <input placeholder="联系方式：" id="tel" type="text">
+                </label>
+                <label>
+                    <input placeholder="联系地址：" id="address" type="text">
+                </label>
+
+                <textarea name="dream" id="dream" placeholder="请简单描述您梦想的生活："></textarea>
+
+                <input type="submit" value="提交申请">
+            </div>
+        </div>
     </div>
     <!-- 主体 END-->
 
     <!-- 页脚 START-->
     <div class="footer">
-        <div class="contact"></div>
-        <div>
-            <a href="#"></a>
-            <a href="#"></a>
+        <div class="contact_us">
+            <h5>联系我们</h5>
+            <p>为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯</p>
+            <p>也可以通过以下任何方式关注我们动态</p>
+            <div class="clear">
+                <label><input type="text" placeholder="someone@email.com"></label>
+                <input type="button" value="提交">
+            </div>
+            <p class="contact_us-icons clear">
+                <a href=""><i class="qq"></i></a>
+                <a href=""><i class="weibo"></i></a>
+                <a href=""><i class="twitter"></i></a>
+                <a href=""><i class="net"></i></a>
+            </p>
         </div>
+        <div class="foot">
+            <a class="copyRight fl" href="#">&copy;2017新世界</a>
+            <a class="backTop fr" href="#header">Back to top</a>
+        </div>
+
     </div>
     <!-- 页脚 END-->
 </div>

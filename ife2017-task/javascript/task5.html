@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn3{ margin-left : 50px;}
+        ul{
+            padding :10px 10px 0 10px;
+            height :100px;
+            width :800px;
+            border :1px solid black;
+        }
+        ul li{
+            float : left;
+            width :10px;
+            height :100px;
+            list-style : none;
+            margin-left :2px;
+            background : #455885;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <label><input id="text" type="text"></label>
+    <input id="btn1" type="button" value="左侧入">
+    <input id="btn2" type="button" value="右侧入">
+    <input id="btn3" type="button" value="左侧出">
+    <input id="btn4" type="button" value="右侧出">
+    <p>
+        <input id="btn5" type="button" value="右入随机高（60个）">
+    </p>
+    <p>
+        <input id="btn6" type="button" value="冒泡排序">
+
+    </p>
+</div>
+<ul>
+</ul>
+</body>
+<script>
+    (function () {
+
+        var text = document.getElementById('text'),
+            btn1 = document.getElementById('btn1'),
+            btn2 = document.getElementById('btn2'),
+            btn3 = document.getElementById('btn3'),
+            btn4 = document.getElementById('btn4'),
+            btn5 = document.getElementById('btn5'),
+            btn6 = document.getElementById('btn6'),
+            btn7 = document.getElementById('btn7'),
+            btn8 = document.getElementById('btn8');
+        var list = document.getElementsByTagName('ul')[0];
+
+
+        // 检查输入的内容为数字
+        function check(val) {
+
+            var myReg = /^(\d+)$/i;
+
+            if (myReg.test(val) && val>=10 && val<= 100) {
+                return true;
+            } else {
+                alert('请输入10-100之间的数字!');
+            }
+        }
+
+        // 左侧入
+        btn1.onclick = function () {
+            var count = list.childNodes.length;
+            var val   = Number(text.value);
+
+            if(count<60){
+                if (check(val)) {
+                    var newLi = document.createElement('li');
+
+                    newLi.style.height = val + 'px';
+                    newLi.style.marginTop = 100-val + 'px';
+                    list.insertBefore(newLi, list.childNodes[0]);
+
+                    // 为增加的节点绑定一个点击事件：点击删除自己
+                    newLi.onclick = function () {
+                        list.removeChild(this);
+                    };
+                }
+                text.value = '';//重置输入框
+            }else{
+                alert('达到上限');
+            }
+        };
+
+        // 右侧入
+        btn2.onclick = function () {
+            var count = list.childNodes.length;
+            var val   = Number(text.value);
+
+            if(count<60){
+                if (check(val)) {
+                    var newLi = document.createElement('li');
+                    newLi.style.height = val + 'px';
+                    newLi.style.marginTop = 100-val + 'px';
+                    list.appendChild(newLi);
+                }
+                text.value = '';
+                newLi.onclick = function () {
+                    list.removeChild(this);
+                };
+            }else{
+                alert('达到上限');
+            }
+
+        };
+
+        // 左侧出
+        btn3.onclick = function () {
+            list.removeChild(list.childNodes[0]);
+        };
+
+        // 右侧出
+        btn4.onclick = function () {
+            list.removeChild(list.childNodes[list.childNodes.length - 1]);
+        };
+
+        // 右入随机高
+        function add() {
+
+            var val =  Math.floor( Math.random()*91 + 10 );// 10-100的随机数
+            var newLi = document.createElement('li');
+
+            newLi.style.height = val + 'px';
+            newLi.style.marginTop = 100-val + 'px';
+            list.appendChild(newLi);
+
+            newLi.onclick = function () {
+                list.removeChild(this);
+            };
+        }
+
+        btn5.onclick = function(){
+            for(var i=0;i<60;i++){
+                add();
+            }
+            this.disabled = true;
+        };
+
+        /* 冒泡排序算法的运作如下：（从后往前）
+         * 1. 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+         * 2. 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+         * 3. 针对所有的元素重复以上的步骤，除了最后一个。
+         * 4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+        * */
+        function bubbleSort(){
+            var items = list.childNodes;
+            var len   = items.length;
+
+            for(var i=0;i<len;i++){
+                for(var j=0;j<len-1-i;j++){
+                    if ( items[j].offsetHeight > items[j+1].offsetHeight ){
+                        setTimeout(run(j),5000);
+                        function run(j){
+                            items[j].style.backgroundColor=items[j+1].style.backgroundColor='red';
+                            // 交换整个li元素
+                            items[j].parentNode.insertBefore(items[j+1],items[j])
+                        }
+                    }
+                }
+            }
+
+        }
+
+        btn6.onclick = bubbleSort;
+    })();
+</script>
+</html>

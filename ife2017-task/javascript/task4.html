@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn3{ margin-left : 50px;}
+        ul{
+            height :32px;
+        }
+        ul li{
+            list-style : none;
+            float : left;
+            height :30px;
+            line-height :30px;
+            padding: 0 8px;
+            margin-left :5px;
+            color : #fff;
+            border :1px solid #4b4a5e;
+            background : #455885;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <label><input id="text" type="text"></label>
+    <input id="btn1" type="button" value="左侧入">
+    <input id="btn2" type="button" value="右侧入">
+    <input id="btn3" type="button" value="左侧出">
+    <input id="btn4" type="button" value="右侧出">
+</div>
+<ul></ul>
+</body>
+<script>
+    (function () {
+
+        var text = document.getElementById('text'),
+            btn1 = document.getElementById('btn1'),
+            btn2 = document.getElementById('btn2'),
+            btn3 = document.getElementById('btn3'),
+            btn4 = document.getElementById('btn4'),
+            btn5 = document.getElementById('btn5');
+        var list = document.getElementsByTagName('ul')[0];
+
+        // 检查输入的内容为数字
+        function check(val) {
+
+            var myReg = /^(\d+)$/i;
+
+            if (myReg.test(val)) {
+                return true;
+            } else {
+                alert('请输入数字!');
+            }
+        }
+
+        // 左侧入
+        btn1.onclick = function () {
+            var val = text.value;
+
+            if (check(val)) {
+                var newLi = document.createElement('li');
+                newLi.innerHTML = text.value;
+                list.insertBefore(newLi, list.childNodes[0]);
+
+                // 为增加的节点绑定一个点击事件：点击删除自己
+                newLi.onclick = function () {
+                    list.removeChild(this);
+                };
+            }
+            text.value = '';//重置输入框
+
+        };
+
+        // 右侧入
+        btn2.onclick = function () {
+            var val = text.value;
+
+            if (check(val)) {
+                var newLi = document.createElement('li');
+                newLi.innerHTML = text.value;
+                list.appendChild(newLi);
+            }
+
+            text.value = '';
+
+            newLi.onclick = function () {
+                list.removeChild(this);
+            };
+        };
+
+        // 左侧出
+        btn3.onclick = function () {
+            alert(list.childNodes[0].innerHTML);
+            list.removeChild(list.childNodes[0]);
+        };
+
+        // 右侧出
+        btn4.onclick = function () {
+            alert(list.childNodes[list.childNodes.length - 1].innerHTML);
+            list.removeChild(list.childNodes[list.childNodes.length - 1]);
+        };
+
+    })();
+</script>
+</html>

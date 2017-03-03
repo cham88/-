@@ -149,13 +149,13 @@
         btn6.onclick = function (){
             var data = [].slice.call(document.getElementsByTagName('li'));// 子元素集转成数组
             var heights = [];
-            !function(){
-                var len = list.childNodes.length;
+            (function(){
+                var len = data.length;
                 for(var i=0;i<len;i++){
-                    heights.push(list.childNodes[i].offsetHeight);
+                    heights.push(data[i].offsetHeight);
                 }
 
-            }();// 获得全部的高
+            })();// 获得全部的高
             var status = [];// 储存每次变化的状态
 
             function draw(){

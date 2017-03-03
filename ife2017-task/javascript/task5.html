@@ -10,9 +10,11 @@
             height :100px;
             width :800px;
             border :1px solid black;
+            position : relative;
         }
         ul li{
-            float : left;
+            position : absolute;
+            bottom :0;
             width :10px;
             height :100px;
             list-style : none;
@@ -36,8 +38,7 @@
 
     </p>
 </div>
-<ul>
-</ul>
+<ul></ul>
 </body>
 <script>
     (function () {
@@ -48,9 +49,7 @@
             btn3 = document.getElementById('btn3'),
             btn4 = document.getElementById('btn4'),
             btn5 = document.getElementById('btn5'),
-            btn6 = document.getElementById('btn6'),
-            btn7 = document.getElementById('btn7'),
-            btn8 = document.getElementById('btn8');
+            btn6 = document.getElementById('btn6');
         var list = document.getElementsByTagName('ul')[0];
 
 
@@ -123,23 +122,18 @@
         };
 
         // 右入随机高
-        function add() {
-
-            var val =  Math.floor( Math.random()*91 + 10 );// 10-100的随机数
-            var newLi = document.createElement('li');
-
-            newLi.style.height = val + 'px';
-            newLi.style.marginTop = 100-val + 'px';
-            list.appendChild(newLi);
-
-            newLi.onclick = function () {
-                list.removeChild(this);
-            };
-        }
-
         btn5.onclick = function(){
             for(var i=0;i<60;i++){
-                add();
+                var val =  Math.floor( Math.random()*91 + 10 );// 10-100的随机数
+                var newLi = document.createElement('li');
+
+                newLi.style.height = val + 'px';
+                newLi.style.left = 12*i + 'px';
+                list.appendChild(newLi);
+
+                newLi.onclick = function () {
+                    list.removeChild(this);
+                };
             }
             this.disabled = true;
         };
@@ -150,26 +144,43 @@
          * 3. 针对所有的元素重复以上的步骤，除了最后一个。
          * 4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
         * */
-        function bubbleSort(){
-            var items = list.childNodes;
-            var len   = items.length;
 
-            for(var i=0;i<len;i++){
-                for(var j=0;j<len-1-i;j++){
-                    if ( items[j].offsetHeight > items[j+1].offsetHeight ){
-                        setTimeout(run(j),5000);
-                        function run(j){
-                            items[j].style.backgroundColor=items[j+1].style.backgroundColor='red';
-                            // 交换整个li元素
-                            items[j].parentNode.insertBefore(items[j+1],items[j])
+        // 排序后，重绘DOM。
+        btn6.onclick = function (){
+            var data = [].slice.call(document.getElementsByTagName('li'));// 子元素集转成数组
+            var heights = [];
+            !function(){
+                var len = list.childNodes.length;
+                for(var i=0;i<len;i++){
+                    heights.push(list.childNodes[i].offsetHeight);
+                }
+
+            }();// 获得全部的高
+            var status = [];// 储存每次变化的状态
+
+            function draw(){
+                var s = status.shift() || [];
+                for(var i=0;i<heights.length;i++){
+                    data[i].style.height = s[i] + 'px';
+                    data[i].style.left = 12*i + 'px';
+                }
+            }
+            function sort(arr){
+                for(var i = 0; i < arr.length; i++){
+                    for(var j = 0; j < arr.length - i - 1; j++){
+                        if(arr[j] > arr[j+1]){
+                            var tmp = arr[j];
+                            arr[j] = arr[j+1];
+                            arr[j+1] =tmp;
+                            status.push(JSON.parse(JSON.stringify(arr)));// 保存每次的副本
                         }
                     }
                 }
             }
+            sort(heights);
+            setInterval(draw,50);
+        };
 
-        }
-
-        btn6.onclick = bubbleSort;
     })();
 </script>
 </html>

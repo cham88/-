@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn3{ margin-left : 50px;}
+        ul{
+            height :32px;
+        }
+        ul li{
+            list-style : none;
+            float : left;
+            height :30px;
+            line-height :30px;
+            padding: 0 8px;
+            margin-left :5px;
+            color : #fff;
+            border :1px solid #4b4a5e;
+            background : #455885;
+        }
+        #text{
+            resize : none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <textarea  id="text" cols="30" rows="10"></textarea>
+    <br>
+    <input id="btn1" type="button" value="左侧入">
+    <input id="btn2" type="button" value="右侧入">
+    <input id="btn3" type="button" value="左侧出">
+    <input id="btn4" type="button" value="右侧出">
+    <p>
+        <input id="text2" type="text">
+        <input id="btn5" type="button" value="查询">
+    </p>
+</div>
+<ul></ul>
+</body>
+<script>
+    (function () {
+
+        var text = document.getElementById('text'),
+            btn1 = document.getElementById('btn1'),
+            btn2 = document.getElementById('btn2'),
+            btn3 = document.getElementById('btn3'),
+            btn4 = document.getElementById('btn4'),
+            btn5 = document.getElementById('btn5');
+
+        var list = document.getElementsByTagName('ul')[0];
+
+
+
+        // 对输入的内容格式化，通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号进行分割
+        // 分割后的内容逐一添加到指定位置（左、右）
+        // 模糊查找、标记结果
+        function format(val) {
+
+            if (/\S+/.test(val)){
+                val = val.trim();//先去除两端空格，以免产生空数据
+                return val.split(/[\r\n\t,， ＼、　]+/g);//数组：格式化后的数据
+            }else{
+                return false;
+            }
+        }
+
+        // 左侧入
+        btn1.onclick = function () {
+
+            var vals = format(text.value);
+
+            if(vals){
+                for (var i=0;i<vals.length;i++) {
+                    var newLi = document.createElement('li');
+                    newLi.innerHTML = vals[i];
+                    list.insertBefore(newLi, list.childNodes[0]);
+                    newLi.onclick = function () {
+                        list.removeChild(this);
+                    };
+                }
+                text.value = '';
+            }
+        };
+
+        // 右侧入
+        btn2.onclick = function () {
+            var vals = format(text.value);
+
+            if (vals) {
+                for (var i = 0; i < vals.length; i++) {
+                    var newLi = document.createElement('li');
+                    newLi.innerHTML = vals[i];
+                    list.appendChild(newLi);
+
+                    newLi.onclick = function () {
+                        list.removeChild(this);
+                    };
+                }
+                text.value = '';
+            }
+        };
+
+        // 左侧出
+        btn3.onclick = function () {
+            alert(list.childNodes[0].innerHTML);
+            list.removeChild(list.childNodes[0]);
+        };
+
+        // 右侧出
+        btn4.onclick = function () {
+            alert(list.childNodes[list.childNodes.length - 1].innerHTML);
+            list.removeChild(list.childNodes[list.childNodes.length - 1]);
+        };
+
+    })();
+</script>
+</html>

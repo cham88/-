@@ -26,14 +26,14 @@
 </head>
 <body>
 <div>
-    <textarea  id="text" cols="30" rows="10"></textarea>
+    <textarea  id="text" cols="30" rows="10" title="area"></textarea>
     <br>
     <input id="btn1" type="button" value="左侧入">
     <input id="btn2" type="button" value="右侧入">
     <input id="btn3" type="button" value="左侧出">
     <input id="btn4" type="button" value="右侧出">
     <p>
-        <input id="text2" type="text">
+        <input id="text2" type="text" title="要查找的值">
         <input id="btn5" type="button" value="查询">
     </p>
 </div>
@@ -42,15 +42,16 @@
 <script>
     (function () {
 
-        var text = document.getElementById('text'),
-            btn1 = document.getElementById('btn1'),
-            btn2 = document.getElementById('btn2'),
-            btn3 = document.getElementById('btn3'),
-            btn4 = document.getElementById('btn4'),
-            btn5 = document.getElementById('btn5');
-
-        var list = document.getElementsByTagName('ul')[0];
-
+        var d        = document,
+            text     = d.querySelector('#text'),
+            text2    = d.querySelector('#text2'),
+            btn1     = d.querySelector('#btn1'),
+            btn2     = d.querySelector('#btn2'),
+            btn3     = d.querySelector('#btn3'),
+            btn4     = d.querySelector('#btn4'),
+            btn5     = d.querySelector('#btn5'),
+            list     = d.querySelector('ul'),
+            children = list.childNodes;
 
 
         // 对输入的内容格式化，通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号进行分割
@@ -73,9 +74,9 @@
 
             if(vals){
                 for (var i=0;i<vals.length;i++) {
-                    var newLi = document.createElement('li');
+                    var newLi = d.createElement('li');
                     newLi.innerHTML = vals[i];
-                    list.insertBefore(newLi, list.childNodes[0]);
+                    list.insertBefore(newLi, children[0]);
                     newLi.onclick = function () {
                         list.removeChild(this);
                     };
@@ -90,7 +91,7 @@
 
             if (vals) {
                 for (var i = 0; i < vals.length; i++) {
-                    var newLi = document.createElement('li');
+                    var newLi = d.createElement('li');
                     newLi.innerHTML = vals[i];
                     list.appendChild(newLi);
 
@@ -104,16 +105,58 @@
 
         // 左侧出
         btn3.onclick = function () {
-            alert(list.childNodes[0].innerHTML);
-            list.removeChild(list.childNodes[0]);
+            list.removeChild(children[0]);
         };
 
         // 右侧出
         btn4.onclick = function () {
-            alert(list.childNodes[list.childNodes.length - 1].innerHTML);
-            list.removeChild(list.childNodes[list.childNodes.length - 1]);
+            list.removeChild(children[children.length - 1]);
         };
 
+        // 模糊查找并标记
+        btn5.onclick = function (){
+
+            var txt = text2.value,
+               listItems = list.querySelectorAll('li'),
+               len=listItems.length;
+            var spans = list.querySelectorAll('li span');
+
+
+            // 如果已经有标记，就先清除原标记 删除所有span标签即可
+            // 没有标记，就直接添加
+            if(spans.length>0){
+                removeSpan();
+                addSpan();
+            }else{
+                addSpan();
+            }
+            text2.value = '';
+
+            function addSpan(){
+                // 添加新标记
+                for(var i=0;i<len;i++){
+                    var str = listItems.item(i).innerHTML;
+
+                    if( txt!==''){
+                        var newInner = str.replace(txt,'<span>'+txt+'</span>');
+                        spans = list.querySelectorAll('li span');// 再次获取
+                        listItems.item(i).innerHTML = newInner;
+                        if (spans.length>0){
+                            for(var k=0;k<spans.length;k++){
+                                spans.item(k).style.backgroundColor = 'red';
+                            }
+                        }
+                    }
+                }
+            }
+            function removeSpan(){
+                var reg = /<span[^>\r\n]*>|<\/span>/g; // 匹配span标签
+                for(var i=0;i<len;i++){
+                    var oldInner = listItems.item(i).innerHTML;
+                    listItems.item(i).innerHTML = oldInner.replace(reg,'');
+                }
+            }
+        };
     })();
 </script>
 </html>

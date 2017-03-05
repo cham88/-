@@ -1,0 +1,230 @@
+/*========================START : reset========================*/
+* {
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
+}
+
+body,ul,li,ol,h1,h2,h3,h4,h5,h6,p{
+    margin  : 0;
+    padding : 0;
+}
+li{
+    list-style : none;}
+a{
+    color : inherit;
+    text-decoration : none;}
+h1,h2,h3,h4,h5,h6{
+    font-weight :normal;}
+
+/*========================START : reset========================*/
+
+/*========================START : 通用========================*/
+.fl { float : left; }
+.fr { float : right; }
+.clear:before, .clear:after {
+    content : '';
+    display : table;
+    clear   : both;
+}
+.wrap{
+    max-width :1280px;
+    height :100%;
+    margin :0 auto;
+}
+.container{
+    width :100%;
+    display : table;
+}
+/*========================END : 通用========================*/
+
+/*========================START : header========================*/
+.header {
+    height     : 56px;
+    background : #2189bf;
+}
+.header .logo {
+    margin-left : 50px;
+    width       : 36px;
+}
+.header .logo a {
+    display    : block;
+    height     : 56px;
+    background : url("images/icons.png");
+}
+.header label {
+    height  : 56px;
+    padding : 15px;
+}
+#search {
+    width         : 312px;
+    height        : 26px;
+    outline       : none;
+    border        : none;
+    border-radius : 10px;
+    padding-left  : 18px;
+    background    : #fff url("images/icons.png") -65px -16px no-repeat;
+}
+#search:focus {
+    background-image : none;
+}
+#login {
+    display      : block;
+    height       : 28px;
+    width        : 72px;
+    margin       : 14px 69px 14px 0;
+    padding-left : 24px;
+    font         : 12px/28px 'Adobe 黑体 Std R';
+    color        : #fff;
+    background   : url("images/icons.png") -80px 7px no-repeat;
+}
+#login:hover {
+    color      : red;
+    background : url("images/icons.png") -80px -37px no-repeat;
+}
+/*========================END : header========================*/
+
+/*========================START : aside========================*/
+.aside{
+    display : table-cell;
+    width :260px;
+    height :1000px;
+    border-right :1px solid #515561;
+    background : #2a2e3d;
+}
+/* title */
+.aside div.title{
+    height :150px;
+    padding-left :45px;
+    padding-top :18px;
+}
+.aside div.title .headPortrait{
+    display : block;
+    height :57px;
+    width         : 57px;
+    padding       : 4px;
+    border        : 1px solid #f6f5f4;
+    border-radius : 50%;
+}
+.aside div.title .headPortrait img{
+    height :47px;
+    width : 47px;
+    border-radius: 50%;
+    background : rgba(246,245,245,0.7);
+}
+.aside div.title h2{
+    width :150px;
+    height : 57px;
+    padding :0 18px;
+    font :16px/57px '黑体';
+    color : #f6f5f5;
+}
+.aside div.title p{
+    width :74px;
+    padding-left :18px;
+    margin-right :13px;
+    margin-top :20px;
+    font :12px/12px '宋体';
+    color : #6e8095;
+}
+.aside div.title p:nth-of-type(1){
+    border-right :2px solid #383d4e;
+}
+.aside div.title p span{
+    font :16px/18px '黑体';
+}
+/* list */
+
+/* icons */
+.icon{
+
+    display : inline-block;
+    height : 12px;
+    width : 12px;
+    margin-right :3px;
+}
+.ico-account{
+    background : url("images/icons.png") -39px -48px no-repeat;
+}
+.ico-bottom{
+    background : url("images/icons.png") -51px -72px no-repeat;
+}
+.ico-doc{
+    background : url("images/icons.png") -39px -12px no-repeat;
+}
+.ico-file{
+    background : url("images/icons.png") -39px 0 no-repeat;
+}
+.ico-left{
+    background : url("images/icons.png") -39px -72px no-repeat;
+}
+.ico-report{
+    background : url("images/icons.png") -39px -60px no-repeat;
+}
+.ico-share{
+    background : url("images/icons.png") -39px -36px no-repeat;
+}
+.ico-star{
+    background : url("images/icons.png") -39px -24px no-repeat;
+}
+
+.list ul.menu{
+    font :12px/48px '黑体';
+    color : #6e8095;
+}
+.list ul.menu p>i.icon{
+    margin-right :10px;
+}
+.list ul.menu p.active,.list ul.menu p:hover,.list ul.menu p+ul a:hover{
+    color : #ededef;
+}
+
+ul.menu li.level1.unfold{
+    background : #393d4e;
+}
+.menu li.level1{
+    padding-left :45px;
+}
+
+.menu .level1 ul.level2{
+    margin-top :-10px;
+    padding-left :24px;
+    line-height :30px;
+}
+.menu .level1 .level2 ul.level3{
+    padding-left :32px;
+}
+.menu .level1 .level2 ul.level3 li{
+    height : 30px;
+}
+/*========================END : aside========================*/
+
+/*========================START : main========================*/
+.main{
+    display : table-cell;
+    width :1020px;
+    height :1000px;
+    background : #eeeded;
+    position : relative;
+}
+.main>p{
+    position : absolute;
+    top :0;
+    width :100%;
+    height :30px;
+    background : #fff;
+    font :12px/30px '黑体';
+    color : #aaaaaa;
+    padding-left :30px;
+}
+.main>p>span{
+    color : #6898c2;
+}
+.main .find{}
+.main .statistics{}
+.main .project{}
+.main .others{}
+
+/*========================END : main========================*/
+
+

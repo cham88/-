@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务九：使用HTML/CSS实现一个复杂页面</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <h1 class="logo fl"><a href="#" title="logo"></a></h1>
+        <a href="#" class="fr" id="login">登录</a>
+        <label class="fr">
+            <input id="search" type="text">
+        </label>
+    </div>
+
+    <div class="container">
+        <div class="aside">
+            <div class="title">
+                <a href="#" class="headPortrait fl"><img src="images/head-portrait.gif"></a>
+                <h2 class="name fl">ABC123</h2>
+                <p class="fl">
+                    <span>110</span><br>收藏
+                </p>
+                <p class="fl">
+                    <span>332</span><br>粉丝
+                </p>
+            </div>
+            <div class="list">
+                <ul class="menu">
+                    <li class="level1 unfold">
+                        <p class="active"><i class="icon ico-file"></i>个人报表</p>
+                        <ul class="level2">
+                            <li>
+                                <p><i class="icon ico-left"></i><i class="icon ico-file"></i>文件一</p>
+                                <ul class="level3"></ul>
+                            </li>
+                            <li>
+                                <p class="active"><i class="icon ico-bottom"></i><i class="icon ico-file"></i>文件二</p>
+                                <ul class="level3">
+                                    <li><i class="icon ico-doc"></i><a class="active" href="#">文档一</a></li>
+                                    <li><i class="icon ico-doc"></i><a href="#">文档二</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><i class="icon ico-left"></i><i class="icon ico-file"></i>文件三</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="level1">
+                        <p><i class="icon ico-star"></i>个人收藏</p>
+                    </li>
+                    <li class="level1">
+                        <p><i class="icon ico-share"></i>我的分享</p>
+                    </li>
+                    <li class="level1">
+                        <p><i class="icon ico-star"></i>图库</p>
+                    </li>
+                    <li class="level1">
+                        <p><i class="icon ico-star"></i>成长记录</p>
+                    </li>
+                    <li class="level1">
+                        <p><i class="icon ico-account"></i>账户信息</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <p>C站  / 个人报表 / 文件一／<span>文档一</span></p>
+
+            <div class="find"></div>
+
+            <div class="statistics">
+            </div>
+
+            <div class="project"></div>
+
+            <div class="others"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

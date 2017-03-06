@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
-<div class="wrap">
     <div class="header">
-        <h1 class="logo fl"><a href="#" title="logo"></a></h1>
-        <a href="#" class="fr" id="login">登录</a>
-        <label class="fr">
-            <input id="search" type="text">
-        </label>
+        <div>
+            <h1 class="logo fl"><a href="#" title="logo"></a></h1>
+            <a href="#" class="fr" id="login">登录</a>
+            <label class="fr">
+                <input id="search" type="text">
+            </label>
+        </div>
     </div>
 
     <div class="container">
@@ -70,7 +71,80 @@
         <div class="main">
             <p>C站  / 个人报表 / 文件一／<span>文档一</span></p>
 
-            <div class="find"></div>
+            <div class="find">
+                <div>
+                    <p class="label fl">查询项</p>
+                    <div class="select fl">
+                        <p class="link">第一项</p>
+                        <ul class="option">
+                            <li>第一项</li>
+                            <li>第二项</li>
+                            <li>第三项</li>
+                            <li>第四项</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="buyer clear">
+                        <p class="label fl">买方</p>
+                        <div class="select fl">
+                            <p class="link">小A</p>
+                            <ul class="option">
+                                <li>小A</li>
+                                <li>小B</li>
+                                <li>小D</li>
+                                <li>小C</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="saler clear">
+                        <p class="label fl">卖方</p>
+                        <div class="select fl">
+                            <p class="link">小A</p>
+                            <ul class="option">
+                                <li>小A</li>
+                                <li>小B</li>
+                                <li>小D</li>
+                                <li>小C</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="change">
+                        <a href="#" >换</a>
+                    </div>
+                </div>
+                <!-- 以下的 select 还没改-->
+                <div>
+                    <label for="date">日期</label>
+                    <input id="date" type="text">
+                    <label for="time">总耗时</label>
+                    <select name="time" id="time">
+                        <option value="1天">1天</option>
+                        <option value="1天">1天</option>
+                        <option value="4天">4天</option>
+                        <option value="5天">5天</option>
+                        <option value="6天">6天</option>
+                        <option value="8天" selected>8天</option>
+                    </select>
+                    <label for="numberOfPeople">人数</label>
+                    <select name="numberOfPeople" id="numberOfPeople">
+                        <option value="10人" selected>10人</option>
+                        <option value="20人">20人</option>
+                        <option value="30人">30人</option>
+                        <option value="40人">40人</option>
+                        <option value="50人">50人</option>
+                    </select>
+                    <label for="deal">成交项</label>
+                    <select name="deal" id="deal">
+                        <option value="10项" selected>10项</option>
+                        <option value="20项">20项</option>
+                    </select>
+                </div>
+                <div>
+                    <button>搜索</button>
+                </div>
+
+            </div>
 
             <div class="statistics">
             </div>
@@ -80,6 +154,5 @@
             <div class="others"></div>
         </div>
     </div>
-</div>
 </body>
 </html>

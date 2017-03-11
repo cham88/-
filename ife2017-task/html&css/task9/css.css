@@ -634,6 +634,196 @@ div.select ul li:hover{
     margin-bottom :155px;
 }
 
+
+/* 日历上方的按钮 */
+.calendar-btn{
+    height :42px;
+    margin :0 20px;
+    padding-top :10px;
+    padding-left :2px;
+    border-bottom :1px solid #d9eaf6;
+}
+.calendar-btn div.select p,.calendar-btn div.select p:hover{
+    background-image : none;
+}
+.calendar-btn div.select p{
+    height :22px;
+    line-height :22px;
+    position : relative;
+    padding-left :4px;
+    padding-right :0;
+}
+.calendar-btn div.select p:hover .calendar-btn-down i{
+    background : url("images/icons.png") -93px -88px no-repeat;
+}
+.calendar-btn-down,.calendar-btn-prev,.calendar-btn-next{
+    position : absolute;
+    display : block;
+    top :0;
+    width :19px;
+    height :20px;
+}
+.calendar-btn .select span.calendar-btn-down{
+    right :0;
+    border-left :1px solid #f5f6f8;
+}
+.calendar-btn .select span.calendar-btn-prev{
+    left :0;
+    border-right :1px solid #f5f6f8;
+}
+.calendar-btn .select span.calendar-btn-prev i{
+    width :5px;
+    height :9px;
+    margin :6px;
+    background : url("images/icons.png") -95px -79px no-repeat;
+}
+.calendar-btn .select span.calendar-btn-next{
+    right :0;
+    border-left :1px solid #f5f6f8;
+}
+.calendar-btn .select span.calendar-btn-next i{
+    width :5px;
+    height :9px;
+    margin :6px;
+    background : url("images/icons.png") -95px -70px no-repeat;
+}
+.calendar-btn .calendar-btn-month span.calendar-btn-down{
+    right :19px;
+    border :none;
+}
+.calendar-btn .select i{
+    display : block;
+    width :7px;
+    margin-top :7px;
+    margin-left :6px;
+    height : 5px;
+    background : url("images/icons.png") -93px -95px no-repeat;
+}
+.calendar-btn div.select ul{
+    top :22px;
+}
+.calendar-btn-year{
+    width :64px;
+    margin-right :6px;
+}
+.calendar-btn-month{
+    width : 85px;
+    margin-right :6px;
+}
+div.calendar-btn-month p.link{
+    padding-left :25px;
+}
+.calendar-btn-date{
+    width : 75px;
+    margin-right :6px;
+}
+.calendar-btn-backtoday{
+    width : 64px;
+}
+
+.calendar-date-number{
+    font :12px/12px '黑体';
+    color : #323333;
+    width :310px;
+    margin :0 20px;
+    border-top :1px solid #a9cfec;
+    text-align: center;
+    vertical-align : middle;
+    border-collapse: collapse;
+}
+.calendar-date-number tr.weekday{
+    height : 30px;
+    border-bottom :1px solid #e1e1e1;
+}
+.calendar-date-number tr.weekday+tr{
+    border-top :1px solid #ececed;
+}
+.calendar-date-number td{
+    height :42px;
+    width : 42px;
+    padding :1px;
+}
+.calendar-date-number td>div{
+    display : table-cell;
+    vertical-align: middle;
+    width : 41px;
+    height : 41px;
+}
+.calendar-date-number .special div{
+    border :1px solid #f4c21d;
+}
+.calendar-date-number .weekend .date-number,.holiday{
+    color : #c9161d;
+}
+
+.ranking-list-table{
+    width :450px;
+    margin :18px auto;
+    font :12px/24px '黑体';
+    color : #323333;
+    border-collapse: collapse;
+    border :1px solid #cacbcb;
+    border-bottom :none;
+    text-align : center;
+    cursor : pointer;
+}
+.ranking-list-table th{
+    height :26px;
+    font :13px/13px '黑体';
+    color : #231815;
+}
+.ranking-list-table td{
+    height : 20px;
+    padding: 0;
+}
+.ranking-list-table td:nth-of-type(1){
+    width :68px;
+}
+.ranking-list-table td:nth-of-type(2){
+    width :92px;
+}
+.ranking-list-table tr:last-of-type td{
+    border-bottom :none;
+}
+.ranking-list-table tr:hover{
+    background : #f4f5f6;
+}
+
+.hot{
+    float : right;
+    margin-right :20px;
+    margin-top :10px;
+    width :168px;
+    height :4px;
+    background : #dddddd;
+}
+.contentColor{
+    float : left;
+    height :4px;
+}
+.contentColor-3{
+    width :30%;
+    background : #7fcbf0;}
+.contentColor-4{
+    width :40%;
+    background : #7fcbf0;}
+.contentColor-5{
+    width :50%;
+    background : #7fcbf0;}
+.contentColor-6{
+    width :60%;
+    background : #7fcbf0;}
+.contentColor-7{
+    width :70%;
+    background : #f19f4f;}
+.contentColor-8{
+    width :80%;
+    background : #ef804f;
+}
+.contentColor-9{
+    width :90%;    background : #ed6e52;}
+.ranking-list-table td .hot{}
+.ranking-list-table td .contentColor{}
 /*========================END : main========================*/
 
 

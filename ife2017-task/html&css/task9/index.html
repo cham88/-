@@ -482,13 +482,377 @@
                 </div>
 
                 <div class="others clear">
-                    <div class="content content_2 fl">
+                    <div class="content content_2 calendar fl">
                         <h3>日历</h3>
-                        <div></div>
+                        <div class="calendar-btn clear">
+                            <div class="select calendar-btn-year fl">
+                                <p class="link">2016年<span class="calendar-btn-down"><i></i></span></p>
+                                <ul class="option">
+                                    <li>2014年</li>
+                                    <li>2015年</li>
+                                    <li>2016年</li>
+                                    <li>2017年</li>
+                                </ul>
+                            </div>
+                            <div class="select calendar-btn-month fl">
+                                <p class="link"><span class="calendar-btn-prev"><i></i></span>4月<span class="calendar-btn-down"><i></i></span><span class="calendar-btn-next"><i></i></span></p>
+                                <ul class="option">
+                                    <li>4月</li>
+                                    <li>5月</li>
+                                    <li>6月</li>
+                                    <li>7月</li>
+                                </ul>
+                            </div>
+                            <div class="select calendar-btn-date fl">
+                                <p class="link">标注日期<span class="calendar-btn-down"><i></i></span></p>
+                                <ul class="option">
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                </ul>
+                            </div>
+                            <div class="select calendar-btn-backtoday fl">
+                                <p class="link">返回今天</p>
+                            </div>
+                        </div>
+                        <table border="0" class="calendar-date-number">
+                            <tr class="weekday">
+                                <th>一</th>
+                                <th>二</th>
+                                <th>三</th>
+                                <th>四</th>
+                                <th>五</th>
+                                <th class="weekend">六</th>
+                                <th class="weekend">日</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <p class="date-number"></p>
+                                        <p class="date-what"></p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                    <p class="date-number"></p>
+                                    <p class="date-what"></p>
+                                </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">1</p>
+                                        <p class="date-what">愚人节</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">2</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">3</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number">4</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number">5</p>
+                                        <p class="date-what holiday">清明</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="holiday">
+                                    <div>
+                                        <p class="date-number">6</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">7</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="special">
+                                    <div>
+                                        <p class="date-number">8</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">9</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">10</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number">11</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="weekend special">
+                                    <div>
+                                        <p class="date-number">12</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <p class="date-number">13</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">14</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">15</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">16</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td  class="special">
+                                    <div>
+                                        <p class="date-number">17</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number">18</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="special weekend">
+                                    <div>
+                                        <p class="date-number">19</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <p class="date-number">20</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">21</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">22</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">23</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">24</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number">25</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number">26</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <p class="date-number">27</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">28</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">29</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number">30</p>
+                                        <p class="date-what">廿五</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <p class="date-number"></p>
+                                        <p class="date-what"></p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number"></p>
+                                        <p class="date-what"></p>
+                                    </div>
+                                </td>
+                                <td class="weekend">
+                                    <div>
+                                        <p class="date-number"></p>
+                                        <p class="date-what"></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
                     </div>
-                    <div class="content content_1 fr">
+                    <div class="content content_1 ranking-list fr">
                         <h3>汽车行业品牌榜</h3>
                         <div>
+                            <table border="1" class="ranking-list-table">
+                                <tr>
+                                    <th>排名</th>
+                                    <th>品牌</th>
+                                    <th>搜索指数</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>大众</td>
+                                    <td>48912001
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-9"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>丰田</td>
+                                    <td>29307333
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-8"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>奥迪</td>
+                                    <td>23139070
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-7"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>本田</td>
+                                    <td>22885564
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-6"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>福特</td>
+                                    <td>22324792
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-5"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>宝马</td>
+                                    <td>21444077
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-5"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>现代</td>
+                                    <td>20114969
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-4"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>起亚</td>
+                                    <td>19251680
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-4"></div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>奔驰</td>
+                                    <td>19172837
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-3"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>别克</td>
+                                    <td>18544027
+                                        <div class="hot">
+                                            <div class="contentColor contentColor-3"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

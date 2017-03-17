@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin : 0;
+            padding : 0;
+        }
+        .box div{
+            width :148px;
+            border :1px solid #f00;
+            margin-bottom :20px;
+        }
+        .box{
+            display : flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: space-between;
+            padding : 20px;
+        }
+        .box1{
+            height :120px;
+        }
+        .box2{
+            height : 100px;
+        }
+        .box3{
+            height : 40px;
+        }
+        div.box4{
+            height : 200px;
+            border-color : #00f;
+        }
+
+        @media (min-width: 641px){
+            .box{
+                align-items : center;
+            }
+
+        }
+        @media (max-width: 640px) {
+            .box{
+                align-items : flex-start;
+            }
+
+            .box1{ order: 2}
+            .box2{ order: 3}
+            .box3{ order: 4}
+            .box4{ order: 1}
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+</div>
+</body>
+</html>

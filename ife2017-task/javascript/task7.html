@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .content div.inner{
+            width : 100px;
+            margin :10px;
+        }
+        div{
+            box-sizing: border-box;
+            display : flex;
+            flex-wrap: wrap;
+            padding :20px;
+            border :1px solid #0e0e0e;
+            margin :5px;
+            background : #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="content tree">
+    <div class="level-1-l">
+        <div class="level-2-l">
+            <div class="level-3-l inner"></div>
+            <div class="level-3-r inner"></div>
+        </div>
+        <div class="level-2-r">
+            <div class="level-3-l inner"></div>
+            <div class="level-3-r inner"></div>
+        </div>
+    </div>
+    <div class="level-1-r">
+        <div class="level-2-l">
+            <div class="level-3-l inner"></div>
+            <div class="level-3-r inner"></div>
+        </div>
+        <div class="level-2-r">
+            <div class="level-3-l inner"></div>
+            <div class="level-3-r inner"></div>
+        </div>
+    </div>
+</div>
+<p>
+    <button>前序</button>
+    <button>中序</button>
+    <button>后序</button>
+</p>
+</body>
+<script>
+    var doc  = document,
+        tree = doc.querySelector('div.tree'),
+        btns = doc.querySelectorAll('button'),
+        btn1 = btns[0],
+        btn2 = btns[1],
+        btn3 = btns[2];
+    var data = [];
+
+    window.onload = function(){
+
+        btn1.onclick = function(){
+            preOrder(tree);
+            setCss();
+        };
+        btn2.onclick = function(){
+            inOrder(tree);
+            setCss();
+        };
+        btn3.onclick = function(){
+            postOrder(tree);
+            setCss();
+        };
+
+        // 前序遍历（先根后左再右）
+        function preOrder(node){
+
+            if(node){
+                data.push(node);
+                preOrder(node.firstElementChild);
+                preOrder(node.lastElementChild);
+            }
+        }
+
+        // 中序遍历 (先左后根再右)
+        function inOrder(node){
+            if(node){
+                inOrder(node.firstElementChild);
+                data.push(node);
+                inOrder(node.lastElementChild)
+            }
+        }
+
+        // 后序（先左后右再根）
+        function postOrder(node){
+            if(node){
+                postOrder(node.firstElementChild);
+                postOrder(node.lastElementChild);
+                data.push(node);
+            }
+        }
+
+        // 动态展示
+        function setCss(){
+            var timer,
+                i=0,
+                len=data.length;
+
+            data[0].style.backgroundColor = 'blue';
+            timer = setInterval(function(){
+                i++;
+                if(i<len){
+                    data[i-1].style.backgroundColor = '#fff';//前一个重置为白色背景
+                    data[i].style.backgroundColor = 'blue';
+                }else{
+                    clearInterval(timer);
+                    data[len-1].style.backgroundColor = '#fff';//结束后，最后一个背景重置为白色
+                    data=[];
+                    alert('over');
+                }
+            },500);
+
+        }
+
+    };
+</script>
+</html>

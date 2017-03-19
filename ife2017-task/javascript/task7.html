@@ -50,25 +50,29 @@
 </p>
 </body>
 <script>
-    var doc  = document,
-        tree = doc.querySelector('div.tree'),
-        btns = doc.querySelectorAll('button'),
-        btn1 = btns[0],
-        btn2 = btns[1],
-        btn3 = btns[2];
-    var data = [];
+    var doc   = document,
+        tree  = doc.querySelector('div.tree'),
+        btns  = doc.querySelectorAll('button'),
+        btn1  = btns[0],
+        btn2  = btns[1],
+        btn3  = btns[2];
+    var data  = [],
+        timer = null;
 
     window.onload = function(){
 
         btn1.onclick = function(){
+            reset();
             preOrder(tree);
             setCss();
         };
         btn2.onclick = function(){
+            reset();
             inOrder(tree);
             setCss();
         };
         btn3.onclick = function(){
+            reset();
             postOrder(tree);
             setCss();
         };
@@ -103,11 +107,10 @@
 
         // 动态展示
         function setCss(){
-            var timer,
-                i=0,
+            var i=0,
                 len=data.length;
 
-            data[0].style.backgroundColor = 'blue';
+            data[i].style.backgroundColor = 'blue';
             timer = setInterval(function(){
                 i++;
                 if(i<len){
@@ -116,11 +119,22 @@
                 }else{
                     clearInterval(timer);
                     data[len-1].style.backgroundColor = '#fff';//结束后，最后一个背景重置为白色
-                    data=[];
                     alert('over');
                 }
             },500);
 
+        }
+
+
+
+        // 初始化
+        function reset(){
+            data = [];
+            var divs = doc.querySelectorAll('div');
+            clearInterval(timer);
+            for(var i=0;i<divs.length;i++){
+                divs[i].style.cssText = '';
+            }
         }
 
     };

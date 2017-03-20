@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .content div.inner{
+            width : 60px;
+            height :20px;
+            line-height :20px;
+            padding :0;
+            text-indent: 0;
+            text-align : center;
+            margin :2px;
+        }
+        div{
+            box-sizing: border-box;
+            display : flex;
+            flex-wrap: wrap;
+            padding :20px;
+            border :1px solid #0e0e0e;
+            margin :5px;
+            background : #fff;
+            text-indent: -20px;
+
+        }
+    </style>
+</head>
+<body>
+<p>
+    <button>遍历</button>
+
+</p>
+<p>
+    <label>输入内容：<input type="text"></label>
+    <button>查找</button>
+</p>
+<div class="content tree">
+    html
+    <div>
+        head
+        <div>
+            meta
+            <div class="inner">title</div>
+            <div class="inner">link</div>
+            <div class="inner">style</div>
+        </div>
+        <div>
+            div
+            <div class="inner">css</div>
+            <div class="inner">js</div>
+            <div class="inner">jq</div>
+        </div>
+        <div>
+            bootstrap
+            <div class="inner">angular</div>
+            <div class="inner">php</div>
+            <div class="inner">jsp</div>
+        </div>
+    </div>
+    <div>
+        body
+        <div>
+            strong
+            <div class="inner">section</div>
+            <div class="inner">em</div>
+            <div class="inner">input</div>
+            <div class="inner">button</div>
+        </div>
+        <div>
+            form
+            <div class="inner">box</div>
+            <div class="inner">radio</div>
+            <div class="inner">text</div>
+        </div>
+        <div>
+            style
+            <div class="inner">form</div>
+            <div class="inner">level</div>
+            <div class="inner">index</div>
+            <div class="inner">hello</div>
+        </div>
+    </div>
+    <div>
+        script
+        <div>
+            world
+            <div class="inner">word</div>
+            <div class="inner">game</div>
+            <div class="inner">start</div>
+            <div class="inner">star</div>
+        </div>
+        <div>
+            end
+            <div class="inner">never</div>
+            <div class="inner">lost</div>
+            <div class="inner">learn</div>
+            <div class="inner">stop</div>
+        </div>
+        <div>
+            lee
+            <div class="inner">one</div>
+            <div class="inner">two</div>
+            <div class="inner">3</div>
+            <div class="inner">over</div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    var doc   = document,
+        tree  = doc.querySelector('div.tree'),
+        btns  = doc.querySelectorAll('button'),
+        btn1  = btns[0],
+        btn2  = btns[1],
+        data  = [],
+        timer = null;
+
+    window.onload = function(){
+
+        btn1.onclick = function(){
+            reset();
+            order(tree);
+            console.log(data);
+            setCss();
+        };
+        btn2.onclick = function(){
+
+        };
+
+
+
+        function order(node){
+
+            if(node){
+                data.push(node);
+                order(node.firstElementChild);
+                order(node.nextElementSibling);// 下一个兄弟元素节点
+            }
+        }
+
+
+        // 动态展示
+        function setCss(){
+            var i=0,
+                len=data.length;
+
+            data[i].style.backgroundColor = 'blue';
+            timer = setInterval(function(){
+                i++;
+                if(i<len){
+                    data[i-1].style.backgroundColor = '#fff';//前一个重置为白色背景
+                    data[i].style.backgroundColor = 'blue';
+                }else{
+                    clearInterval(timer);
+                    data[len-1].style.backgroundColor = '#fff';//结束后，最后一个背景重置为白色
+                    alert('over');
+                }
+            },500);
+
+        }
+
+
+
+        // 初始化
+        function reset(){
+            data = [];
+            var divs = doc.querySelectorAll('div');
+            clearInterval(timer);
+            for(var i=0;i<divs.length;i++){
+                divs[i].style.cssText = '';
+            }
+        }
+
+    };
+</script>
+</html>

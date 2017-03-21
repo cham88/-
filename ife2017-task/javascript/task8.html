@@ -30,10 +30,18 @@
 <body>
 <p>
     <button>遍历</button>
-
 </p>
 <p>
     <label>输入内容：<input type="text"></label>
+    <label>查找速度：
+        <select>
+            <option value="10">10ms</option>
+            <option value="50" selected>50ms</option>
+            <option value="100">100ms</option>
+            <option value="300">300ms</option>
+            <option value="500">500ms</option>
+        </select>
+    </label>
     <button>查找</button>
 </p>
 <div class="content tree">
@@ -115,6 +123,8 @@
         btns  = doc.querySelectorAll('button'),
         btn1  = btns[0],
         btn2  = btns[1],
+        txt   = doc.querySelector('input'),
+        select= doc.querySelector('select'),
         data  = [],
         timer = null;
 
@@ -123,24 +133,27 @@
         btn1.onclick = function(){
             reset();
             order(tree);
-            console.log(data);
             setCss();
         };
         btn2.onclick = function(){
-
+            reset();
+            order(tree);
+            findAndSet();
         };
 
-
-
+        // 遍历节点
         function order(node){
 
             if(node){
                 data.push(node);
                 order(node.firstElementChild);
-                order(node.nextElementSibling);// 下一个兄弟元素节点
+                if(node.parentNode.nodeName.toLowerCase()!='body'){
+                    // 不查找根节点的兄弟节点
+                    order(node.nextElementSibling);// 下一个兄弟元素节点
+                }
             }
-        }
 
+        }
 
         // 动态展示
         function setCss(){
@@ -153,6 +166,7 @@
                 if(i<len){
                     data[i-1].style.backgroundColor = '#fff';//前一个重置为白色背景
                     data[i].style.backgroundColor = 'blue';
+
                 }else{
                     clearInterval(timer);
                     data[len-1].style.backgroundColor = '#fff';//结束后，最后一个背景重置为白色
@@ -160,9 +174,62 @@
                 }
             },500);
 
+
+
         }
 
+        // 查找并展示过程
+        function findAndSet(){
+            var i=0,
+                len=data.length,
+                str = txt.value;
+            var speed = select.value;
 
+            data[i].style.backgroundColor = 'blue';
+            timer = setInterval(function(){
+                i++;
+                if(i<len){
+                    if(!data[i-1].onOff){
+                        data[i-1].style.backgroundColor = '#fff';//前一个重置为白色背景
+                    }
+                    data[i].style.backgroundColor = 'blue';
+                    find(data[i],str);
+                }else{
+                    clearInterval(timer);
+                    data[len-1].style.backgroundColor = '#fff';//结束后，最后一个背景重置为白色
+                    alert('查找结束');
+                    for(i=0;i<data.length;i++){
+                        if(data[i].onOff){
+                            return;
+                        }
+                    }
+                    alert('未找到！');
+                }
+
+            },speed);
+
+            // 查找
+            function find(node,str){
+                // 根据data 中的元素 查找其中的文本节点
+                // 如果与给定的值一样，则标记出来
+                var text = getText(node);
+                if( text == str ){
+                    node.style.backgroundColor = 'red';
+                    node.onOff = true; // 通过自定义属性标记找到的元素
+                }
+                // 获取文本
+                function getText(node){
+                    var children = node.childNodes;
+                    var text = '';
+                    for(var i=0;i<children.length;i++){
+                        if( children[i].nodeType == 3  ){
+                            text += children[i].nodeValue;
+                        }
+                    }
+                    return text.trim();
+                }
+            }
+        }
 
         // 初始化
         function reset(){
@@ -171,8 +238,13 @@
             clearInterval(timer);
             for(var i=0;i<divs.length;i++){
                 divs[i].style.cssText = '';
+                divs[i].onOff = false;
             }
         }
+
+
+
+
 
     };
 </script>

@@ -180,16 +180,16 @@
 
         // 查找并展示过程
         function findAndSet(){
-            var i=0,
+            var i=-1,//初始值设置为-1，就不会漏find(data[0],str)
                 len=data.length,
                 str = txt.value;
             var speed = select.value;
 
-            data[i].style.backgroundColor = 'blue';
+            data[0].style.backgroundColor = 'blue';
             timer = setInterval(function(){
                 i++;
                 if(i<len){
-                    if(!data[i-1].onOff){
+                    if(i>=1 && !data[i-1].onOff){
                         data[i-1].style.backgroundColor = '#fff';//前一个重置为白色背景
                     }
                     data[i].style.backgroundColor = 'blue';

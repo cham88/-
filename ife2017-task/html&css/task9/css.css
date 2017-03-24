@@ -367,7 +367,10 @@ div.select p.link {
     font: 12px/26px '黑体';
     color: #323333;
     border: 1px solid #c2c3c4;
-    box-shadow: 1px 0 0 #fbfbfb inset, /* 左边阴影*/ 1px 0 0 #fbfbfb, /* 右边阴影*/ 0 -1px 0 #f4f4f4, /* 上边阴影*/ 0 -1px 0 #f4f4f4 inset; /* 下边阴影*/
+    box-shadow: 1px 0 0 #fbfbfb inset, /* 左边阴影*/
+                1px 0 0 #fbfbfb, /* 右边阴影*/
+                0 -1px 0 #f4f4f4, /* 上边阴影*/
+                0 -1px 0 #f4f4f4 inset; /* 下边阴影*/
     background: #fff url("images/icons-select-1.png") 90% center no-repeat;
 }
 
@@ -569,19 +572,23 @@ div.select ul li:hover {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.statistics li:nth-of-type(1):before, .statistics li:nth-of-type(1) .box {
+.statistics li:nth-of-type(1):before,
+.statistics li:nth-of-type(1) .box {
     background: #43b29d;
 }
 
-.statistics li:nth-of-type(2):before, .statistics li:nth-of-type(2) .box {
+.statistics li:nth-of-type(2):before,
+.statistics li:nth-of-type(2) .box {
     background: #388bc2;
 }
 
-.statistics li:nth-of-type(3):before, .statistics li:nth-of-type(3) .box {
+.statistics li:nth-of-type(3):before,
+.statistics li:nth-of-type(3) .box {
     background: #d04b36;
 }
 
-.statistics li:nth-of-type(4):before, .statistics li:nth-of-type(4) .box {
+.statistics li:nth-of-type(4):before,
+.statistics li:nth-of-type(4) .box {
     background: #e2cd46;
 }
 

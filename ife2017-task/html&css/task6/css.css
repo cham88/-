@@ -183,7 +183,9 @@ START : 主体-main
     width: 203px;
 }
 
-.side div b, .side div span, .side div i {
+.side div b,
+.side div span,
+.side div i {
     position: absolute;
 }
 
@@ -279,7 +281,9 @@ START : 主体-main
     height: 606px;
 }
 
-.tec-article, .tec-banner, .tec-list {
+.tec-article,
+.tec-banner,
+.tec-list {
     position: absolute;
 }
 

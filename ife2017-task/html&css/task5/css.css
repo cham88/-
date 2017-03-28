@@ -31,7 +31,8 @@ body {
 p {
     font: 14px/25px "微软雅黑";
 }
-article, aside {
+article,
+aside {
     background: #fff;
     margin: 20px;
     padding: 20px;
@@ -214,12 +215,12 @@ aside {
     right:34px;
 }
 #register .fl {
-    width: 35%;
+    width: 40%;
     text-align: right;
 }
 
 #register .fr {
-    width: 65%;
+    width: 60%;
     text-indent: 10px;
     text-align: left;
 }
@@ -230,7 +231,9 @@ aside {
     line-height: 30px;
 }
 
-#register div.username, #register div.password, #register div.info {
+#register div.username,
+#register div.password,
+#register div.info {
     margin-top: 20px;
 }
 

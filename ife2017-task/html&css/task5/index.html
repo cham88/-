@@ -166,6 +166,8 @@
                 </table>
             </article>
         </section>
+        <!-- 使用浮动布局的侧边栏 -->
+        <!--
         <aside>
             <h3>侧边栏注册窗口的标题</h3>
             <div id="register">
@@ -271,6 +273,81 @@
                     <input type="submit" value="确认提交">
                 </div>
             </div>
+        </aside>
+        -->
+        <!-- 使用table布局的侧边栏 -->
+        <aside>
+            <h3>侧边栏注册窗口的标题</h3>
+            <div class="register">
+                <div class="register-row">
+                    <div class="register-label">
+                        <label for="email">请输入邮箱地址：</label>
+                    </div>
+                    <div class="register-input">
+                        <input id="email" type="text">
+                        <p class="tips">邮箱地址请按要求格式输入</p>
+                    </div>
+                </div>
+                <div class="register-row">
+                    <div class="register-label">
+                        <label for="password">请输入密码：</label>
+                    </div>
+                    <div class="register-input">
+                        <input id="password" type="password">
+                    </div>
+                </div>
+                <div class="register-row">
+                    <div class="register-label">
+                        <label for="repeat">请重复输入输入密码：</label>
+                    </div>
+                    <div class="register-input">
+                        <input id="repeat" type="password">
+                        <p class="tips">密码请为6-16位英文或数字</p>
+                    </div>
+                </div>
+                <div class="register-row">
+                    <div class="register-label">
+                        <label>性别：</label>
+                    </div>
+                    <div class="register-input">
+                        <label><input name="gender" type="radio" value="male">男</label>
+                        <label><input name="gender" type="radio" value="female">女</label>
+                    </div>
+                </div>
+                <div class="register-row">
+                    <div class="register-label">
+                        <label for="city">城市：</label>
+                    </div>
+                    <div class="register-input">
+                        <select name="city" id="city">
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="杭州" selected>杭州</option>
+                            <option value="苏州">苏州</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="register-row">
+                    <div class="register-label">
+                        <label>爱好：</label>
+                    </div>
+                    <div class="register-input">
+                        <label><input type="checkbox" name="hobby" value="sport">运动</label>
+                        <label><input type="checkbox" name="hobby" value="science">科学</label>
+                        <label><input type="checkbox" name="hobby" value="art">艺术</label>
+                    </div>
+                </div>
+                <div class="register-row">
+                    <div class="register-label">
+                        <label for="description">个人描述：</label>
+                    </div>
+                    <div class="register-input">
+                       <textarea name="description" id="description"
+                                 placeholder="这是一个多行输入框，请输入您的个人描述"></textarea>
+                    </div>
+                </div>
+            </div>
+            <input class="submit" type="submit" value="确认提交">
         </aside>
         <footer>
             <p>版权所有&copy;</p>

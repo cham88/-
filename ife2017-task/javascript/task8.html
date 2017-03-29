@@ -147,7 +147,7 @@
             if(node){
                 data.push(node);
                 order(node.firstElementChild);
-                if(node.parentNode.nodeName.toLowerCase()!='body'){
+                if(node.parentNode.nodeName.toLowerCase()!=='body'){
                     // 不查找根节点的兄弟节点
                     order(node.nextElementSibling);// 下一个兄弟元素节点
                 }
@@ -196,7 +196,8 @@
                     find(data[i],str);
                 }else{
                     clearInterval(timer);
-                    data[len-1].style.backgroundColor = '#fff';//结束后，最后一个背景重置为白色
+                    data[len-1].style.backgroundColor = (data[i-1].onOff)?'red':'#fff';
+                        //结束后，最后一个如果不是查找到的元素就把背景重置为白色
                     alert('查找结束');
                     for(i=0;i<data.length;i++){
                         if(data[i].onOff){
@@ -213,7 +214,7 @@
                 // 根据data 中的元素 查找其中的文本节点
                 // 如果与给定的值一样，则标记出来
                 var text = getText(node);
-                if( text == str ){
+                if( text === str ){
                     node.style.backgroundColor = 'red';
                     node.onOff = true; // 通过自定义属性标记找到的元素
                 }
@@ -222,7 +223,7 @@
                     var children = node.childNodes;
                     var text = '';
                     for(var i=0;i<children.length;i++){
-                        if( children[i].nodeType == 3  ){
+                        if( children[i].nodeType === 3  ){
                             text += children[i].nodeValue;
                         }
                     }

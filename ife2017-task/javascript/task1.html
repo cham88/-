@@ -5,19 +5,17 @@
     <title>任务一：零基础JavaScript编码（一）</title>
 </head>
 <body>
-    <label>
-        请输入北京今天空气质量：
-        <input id="aqi-input" type="text">
-    </label>
+    <label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
     <button id="button">确认填写</button>
     <div>
-        您输入的值是：<span id="aqi-display">尚无录入</span></div>
+        您输入的值是：<span id="aqi-display">尚无录入</span>
+    </div>
     <script>
         (function(){
 
-            var oAqiInput   = document.getElementById('aqi-input');
-            var oButton     = document.getElementById('button');
-            var oAqiDisplay = document.getElementById('aqi-display');
+            var oAqiInput   = document.getElementById('aqi-input'),
+                oButton     = document.getElementById('button'),
+                oAqiDisplay = document.getElementById('aqi-display');
 
             oButton.onclick = function(){
                 // 按下按钮，将aqi-display中的值修改为输入的值

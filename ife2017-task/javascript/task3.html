@@ -22,7 +22,6 @@
     <li>第二名：北京空气质量：<b>90</b></li>
     <li>第三名：北京空气质量：<b>90</b></li>
      -->
-
 </ul>
 
 <button id="sort-btn">排序</button>
@@ -35,14 +34,14 @@
      * 返回一个数组，格式见函数中示例
      */
     function getData() {
-        var data = [];
-        var oSource = document.getElementById('source');
-        var aLi = oSource.getElementsByTagName('li');
+        var data    = [],
+            oSource = document.getElementById('source'),
+            aLi     = oSource.getElementsByTagName('li');
 
-        for(var i=0;i<aLi.length;i++){
-            var str      = aLi[i].innerHTML;
-            var cityName = str.slice(0,str.indexOf('空气'));                  // 取得城市名称
-            var airIndex = aLi[i].getElementsByTagName('b')[0].innerHTML;    // 取得污染指数
+        for ( var i = 0; i < aLi.length; i++ ){
+            var str      = aLi[i].innerHTML,
+                cityName = str.slice( 0, str.indexOf('空气') ),                  // 取得城市名称
+                airIndex = aLi[i].getElementsByTagName('b')[0].innerHTML;    // 取得污染指数
 
             data[i] = [cityName,Number(airIndex)];
         }
@@ -66,10 +65,10 @@
      * 格式见ul中的注释的部分
      */
     function render(data) {
-        var oResort = document.getElementById('resort');
-        var count = ['一','二','三','四','五','六','七','八','九','十'];//用来显示排名
+        var oResort = document.getElementById('resort'),
+            count = ['一','二','三','四','五','六','七','八','九','十'];//用来显示排名
 
-        for(var i=0;i<data.length;i++){
+        for ( var i = 0; i < data.length; i++){
             var newLi = document.createElement('li');  // 新建li
             newLi.innerHTML = '第'+count[i]+'名:' + data[i][0] + '空气质量：' + '<b>' + data[i][1] + '</b>';
             oResort.appendChild(newLi);
@@ -78,6 +77,7 @@
 
     function btnHandle() {
         var aqiData = getData();
+
         aqiData = sortAqiData(aqiData);
         render(aqiData);
         this.removeEventListener('click',btnHandle);// 移除事件，以免重复调用

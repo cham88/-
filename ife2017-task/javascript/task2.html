@@ -25,10 +25,10 @@
 
     (function () {
 
-        /*
-         在注释下方编写代码
-         遍历读取aqiData中各个城市的数据
-         将空气质量指数大于60的城市显示到aqi-list的列表中
+        /**
+         *  在注释下方编写代码
+         *  遍历读取aqiData中各个城市的数据
+         *  将空气质量指数大于60的城市显示到aqi-list的列表中
          */
 
         // 思路：
@@ -36,7 +36,7 @@
 
         var oList = document.getElementById('aqi-list');
         var count = ['一','二','三','四','五','六','七','八','九','十'];//用来显示排名
-        var n=0;//计算排名
+        var iNum  = 0;//计算排名
 
         // 从大到小排序
         aqiData.sort(function(a,b){
@@ -44,12 +44,12 @@
         });
 
         //通过循环，符合条件的添加到列表中
-        for(var i=0;i<aqiData.length;i++){
-            if ( aqiData[i][1]>60 ){
+        for( var i = 0; i < aqiData.length; i++){
+            if ( aqiData[i][1] > 60 ){
                 var newLi = document.createElement('li');
-                newLi.innerHTML = '第'+count[n]+'名:'+aqiData[i][0] +','+ aqiData[i][1];
-                oList.appendChild(newLi);
-                n++;
+                newLi.innerHTML = '第'+count[iNum]+'名:'+aqiData[i][0] +','+ aqiData[i][1];
+                oList.appendChild( newLi );
+                iNum++;
             }
         }
     })();

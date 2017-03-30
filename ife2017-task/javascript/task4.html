@@ -34,11 +34,11 @@
 <script>
     (function () {
 
-        var text = document.getElementById('text'),
-            btn1 = document.getElementById('btn1'),
-            btn2 = document.getElementById('btn2'),
-            btn3 = document.getElementById('btn3'),
-            btn4 = document.getElementById('btn4');
+        var oText = document.getElementById('text'),
+            oBtn1 = document.getElementById('btn1'),
+            oBtn2 = document.getElementById('btn2'),
+            oBtn3 = document.getElementById('btn3'),
+            oBtn4 = document.getElementById('btn4');
 
         var list = document.getElementsByTagName('ul')[0];
 
@@ -55,12 +55,12 @@
         }
 
         // 左侧入
-        btn1.onclick = function () {
-            var val = text.value;
+        oBtn1.onclick = function () {
+            var val = oText.value;
 
-            if (check(val)) {
+            if ( check(val) ) {
                 var newLi = document.createElement('li');
-                newLi.innerHTML = text.value;
+                newLi.innerHTML = oText.value;
                 list.insertBefore(newLi, list.childNodes[0]);
 
                 // 为增加的节点绑定一个点击事件：点击删除自己
@@ -68,35 +68,35 @@
                     list.removeChild(this);
                 };
             }
-            text.value = '';//重置输入框
+            oText.value = '';//重置输入框
 
         };
 
         // 右侧入
-        btn2.onclick = function () {
-            var val = text.value;
+        oBtn2.onclick = function () {
+            var val = oText.value;
 
-            if (check(val)) {
+            if ( check(val) ){
                 var newLi = document.createElement('li');
-                newLi.innerHTML = text.value;
+                newLi.innerHTML = oText.value;
                 list.appendChild(newLi);
             }
 
-            text.value = '';
+            oText.value = '';
 
-            newLi.onclick = function () {
+            newLi.onclick = function(){
                 list.removeChild(this);
             };
         };
 
         // 左侧出
-        btn3.onclick = function () {
+        oBtn3.onclick = function () {
             alert(list.childNodes[0].innerHTML);
             list.removeChild(list.childNodes[0]);
         };
 
         // 右侧出
-        btn4.onclick = function () {
+        oBtn4.onclick = function () {
             alert(list.childNodes[list.childNodes.length - 1].innerHTML);
             list.removeChild(list.childNodes[list.childNodes.length - 1]);
         };

@@ -43,14 +43,15 @@
 <script>
     (function () {
 
-        var text = document.getElementById('text'),
-            btn1 = document.getElementById('btn1'),
-            btn2 = document.getElementById('btn2'),
-            btn3 = document.getElementById('btn3'),
-            btn4 = document.getElementById('btn4'),
-            btn5 = document.getElementById('btn5'),
-            btn6 = document.getElementById('btn6');
-        var list = document.getElementsByTagName('ul')[0];
+        var doc  = document,
+            text = doc.getElementById('text'),
+            btn1 = doc.getElementById('btn1'),
+            btn2 = doc.getElementById('btn2'),
+            btn3 = doc.getElementById('btn3'),
+            btn4 = doc.getElementById('btn4'),
+            btn5 = doc.getElementById('btn5'),
+            btn6 = doc.getElementById('btn6');
+        var list = doc.getElementsByTagName('ul')[0];
 
 
         // 检查输入的内容为数字
@@ -92,17 +93,17 @@
         // 右侧入
         btn2.onclick = function () {
             var count = list.childNodes.length;
-            var val   = Number(text.value);
+            var val   = Number( text.value );
 
-            if(count<60){
-                if (check(val)) {
+            if (count<60){
+                if ( check(val) ) {
                     var newLi = document.createElement('li');
                     newLi.style.height = val + 'px';
                     newLi.style.marginTop = 100-val + 'px';
-                    list.appendChild(newLi);
+                    list.appendChild( newLi );
                 }
                 text.value = '';
-                newLi.onclick = function () {
+                newLi.onclick = function(){
                     list.removeChild(this);
                 };
             }else{
@@ -138,12 +139,13 @@
             this.disabled = true;
         };
 
-        /* 冒泡排序算法的运作如下：（从后往前）
+        /**
+         *  冒泡排序算法的运作如下：（从后往前）
          * 1. 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
          * 2. 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
          * 3. 针对所有的元素重复以上的步骤，除了最后一个。
          * 4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-        * */
+         */
 
         // 排序后，重绘DOM。
         btn6.onclick = function (){

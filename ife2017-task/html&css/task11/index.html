@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        var w = document.documentElement.clientWidth;
+        var html = document.getElementsByTagName('html')[0];
+
+        if (w >1000 ){
+            html.style.fontSize = 1000/30 + 'px';
+        }else{
+            html.style.fontSize = w/30 + 'px';
+        }
+
+    </script>
+</head>
+<body>
+<section class="page">
+    <nav class="nav">
+        <ul class="clearfix">
+            <li><a href="#">导航</a></li>
+            <li class="active"><a href="#">导航</a></li>
+            <li><a href="#">导航</a></li>
+            <li><a href="#">导航</a></li>
+            <li><a href="#">导航</a></li>
+        </ul>
+    </nav>
+    <div>
+        <div class="image big-image">
+            <img src="images/big_1.gif" alt="">
+        </div>
+        <div class="menu">
+            <ul class="menu-link clearfix">
+                <li>
+                    <div class="image">
+                        <img src="images/icon.png" alt="">
+                    </div>
+                    <p>标签</p>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="images/icon.png" alt="">
+                    </div>
+                    <p>标签</p>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="images/icon.png" alt="">
+                    </div>
+                    <p>标签</p>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="images/icon.png" alt="">
+                    </div>
+                    <p>标签</p>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="images/icon.png" alt="">
+                    </div>
+                    <p>标签</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

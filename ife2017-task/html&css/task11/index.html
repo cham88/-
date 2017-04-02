@@ -12,18 +12,26 @@
         var html = document.getElementsByTagName('html')[0];
 
         if (w >1000 ){
-            html.style.fontSize = 600/30 + 'px';
+            html.style.fontSize = 1000/30 + 'px';
         }else{
             html.style.fontSize = w/30 + 'px';
         }
 
+        window.onload = function (){
+            console.log( document.getElementById('test').offsetWidth );
+        };
     </script>
+
 </head>
 <body>
 <section class="page">
+    <header>
+        <a href="#">< 返回</a>
+        <h1>这是标题</h1>
+    </header>
     <nav class="nav">
         <ul class="clearfix">
-            <li><a href="#">导航</a></li>
+            <li id="test"><a href="#">导航</a></li>
             <li class="active"><a href="#">导航</a></li>
             <li><a href="#">导航</a></li>
             <li><a href="#">导航</a></li>
@@ -105,7 +113,7 @@
                 <div class="image fl">
                     <img src="images/pic.jpg" alt="">
                 </div>
-                <ul class="tips fl">
+                <ul class="tips fr">
                     <li>这是文案</li>
                     <li>这是文案</li>
                     <li>这是文案</li>
@@ -116,7 +124,7 @@
                 <div class="image fl">
                     <img src="images/pic.jpg" alt="">
                 </div>
-                <ul class="tips fl">
+                <ul class="tips fr">
                     <li>这是文案</li>
                     <li>这是文案</li>
                     <li>这是文案</li>

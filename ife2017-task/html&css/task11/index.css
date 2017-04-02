@@ -32,10 +32,29 @@ li {
     clear: both;
 }
 .page {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
 }
-
+header {
+    height:4rem;
+    line-height:4rem;
+    background: #91d4da;
+    text-align: center;
+    position: relative;
+}
+header a {
+    position: absolute;
+    display: block;
+    height: 4rem;
+    left:1rem;
+    font-size:1.2rem;
+    color: #fefffb;
+}
+header h1 {
+    font-size:1.6rem;
+    color: #f8fefe;
+    font-weight:normal;
+}
 /* 导航 */
 .nav li {
     float: left;

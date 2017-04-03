@@ -1,0 +1,104 @@
+/* box1 css3 选择器 */
+.box1 table tr:first-of-type{
+    background: #000;
+    color: #fff;
+}
+tr:nth-of-type(2n+1) {
+    background: #333;
+}
+tr:nth-of-type(2),
+tr:nth-of-type(3),
+tr:nth-of-type(4) {
+    color: red;
+}
+
+/* box2 box-shadow练习 */
+/* 语法
+box-shadow: h-shadow v-shadow blur spread color inset;
+注释：box-shadow 向框添加一个或多个阴影。
+该属性是由逗号分隔的阴影列表，每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略长度的值是 0。
+__________________________________________
+    值	    |         描述
+h-shadow	| 必需。水平阴影的位置。允许负值。
+v-shadow	| 必需。垂直阴影的位置。允许负值。
+blur	    | 可选。模糊距离。
+spread	    | 可选。阴影的尺寸。
+color	    | 可选。阴影的颜色。请参阅 CSS 颜色值。
+inset	    | 可选。将外部阴影 (outset) 改为内部阴影。
+
+*/
+.box2 {
+    padding-top: 30px;
+}
+.div1 {
+    width:200px;
+    height:30px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 -1px #f7f7f7,      /* 上边框外阴影 */
+                1px 0 #f9f9f9,       /* 右边阴影     */
+                inset 0 -1px #f1f1f1,/* 下边框内阴影 */
+                inset 1px 0 #f3f3f3; /* 左边        */
+}
+.div2 {
+    margin-top: 30px;
+    width:250px;
+    height: 40px;
+    box-shadow: inset 0 0 3px 0 #77adf5, 0 0 4px 1px #76ace8;
+}
+
+
+/* transform  */
+.box3 {
+    padding-top:30px;
+    width:200px;
+    overflow: hidden;
+}
+.wrap {
+    height:80px;
+    width:200px;
+    position: relative;
+}
+.content {
+    width: 600px;
+}
+.item {
+    height:80px;
+    width:200px;
+    float: left;
+}
+.item:nth-of-type(1) {
+    background: blue;
+}
+.item:nth-of-type(2) {
+    background: green;
+}
+.item:nth-of-type(3) {
+    background: yellow;
+}
+.box3 ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right:0;
+    bottom: 0;
+    z-index: 2;
+}
+.box3 ul li {
+    height:20px;
+    width:20px;
+    list-style: none;
+    margin-left:2px;
+    background: rgba(255,255,255,.6);
+    text-align: center;
+    float: left;
+}
+
+div.box3:nth-of-type(1) .content {
+    transform: translateX(0);
+}
+div.box3:nth-of-type(2) .content {
+    transform: translateX(-100px);
+}
+div.box3:nth-of-type(3) .content {
+    transform: translateX(-200px);
+}

@@ -1,3 +1,8 @@
+section {
+    width:300px;
+    margin:0 auto;
+    text-align: center;
+}
 /* box1 css3 选择器 */
 .box1 table tr:first-of-type{
     background: #000;
@@ -47,11 +52,22 @@ inset	    | 可选。将外部阴影 (outset) 改为内部阴影。
 }
 
 
-/* transform  */
+/* animation   */
+/*
+语法
+animation: name duration timing-function delay iteration-count direction;
+________________________________________________________________________
+        值	                |          描述
+animation-name	            |  规定需要绑定到选择器的 keyframe 名称。。
+animation-duration	        |  规定完成动画所花费的时间，以秒或毫秒计。
+animation-timing-function	|  规定动画的速度曲线。
+animation-delay	            |  规定在动画开始之前的延迟。
+animation-iteration-count	|  规定动画应该播放的次数。
+animation-direction	        |  规定是否应该轮流反向播放动画。
+*/
 .box3 {
     padding-top:30px;
     width:200px;
-    overflow: hidden;
 }
 .wrap {
     height:80px;
@@ -59,12 +75,44 @@ inset	    | 可选。将外部阴影 (outset) 改为内部阴影。
     position: relative;
 }
 .content {
-    width: 600px;
+    height:80px;
+    width: 200px;
+    position: relative;
+    overflow: hidden;
 }
 .item {
     height:80px;
     width:200px;
-    float: left;
+    position: absolute;
+    left:0;
+    top:0;
+}
+.item:target {
+    animation: show 3s forwards;
+}
+.item:not(:target) {
+    animation: hide 3s forwards;
+}
+
+@keyframes show {
+    from {
+        left: 200px;
+        top: 0;
+    }
+    to {
+        left: 0;
+        top: 0;
+    }
+}
+@keyframes hide {
+    from {
+        left: 0;
+        top: 0;
+    }
+    to {
+        left: -200px;
+        top: 0;
+    }
 }
 .item:nth-of-type(1) {
     background: blue;
@@ -75,15 +123,14 @@ inset	    | 可选。将外部阴影 (outset) 改为内部阴影。
 .item:nth-of-type(3) {
     background: yellow;
 }
-.box3 ul {
+ul {
+    position: absolute;
     margin: 0;
     padding: 0;
-    position: absolute;
     right:0;
     bottom: 0;
-    z-index: 2;
 }
-.box3 ul li {
+ul li {
     height:20px;
     width:20px;
     list-style: none;
@@ -91,14 +138,4 @@ inset	    | 可选。将外部阴影 (outset) 改为内部阴影。
     background: rgba(255,255,255,.6);
     text-align: center;
     float: left;
-}
-
-div.box3:nth-of-type(1) .content {
-    transform: translateX(0);
-}
-div.box3:nth-of-type(2) .content {
-    transform: translateX(-100px);
-}
-div.box3:nth-of-type(3) .content {
-    transform: translateX(-200px);
 }

@@ -126,7 +126,8 @@ START : 主体-main
     height: 301px;
 }
 
-.left_mask, .right_mask {
+.left_mask,
+.right_mask {
     position: absolute;
     top: 0;
     width: 191px;

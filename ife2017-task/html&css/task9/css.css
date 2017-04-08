@@ -39,10 +39,12 @@ h1, h2, h3, h4, h5, h6 {
     display: table;
     clear: both;
 }
-
-.container {
+.container,
+.header-content {
     width: 1280px;
     margin: 0 auto;
+}
+.container {
     display: table;
 }
 
@@ -55,23 +57,18 @@ h1, h2, h3, h4, h5, h6 {
     background: #2189bf;
 }
 
-.header div {
-    width: 1280px;
-    margin: 0 auto;
-}
-
-.header .logo {
+.logo {
     margin-left: 50px;
     width: 36px;
 }
 
-.header .logo a {
+.logo a {
     display: block;
     height: 56px;
     background: url("images/icons.png");
 }
 
-.header label {
+.header-search {
     height: 56px;
     padding: 15px;
 }
@@ -117,13 +114,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* title */
-.aside div.title {
+.title {
     height: 150px;
     padding-left: 45px;
     padding-top: 18px;
 }
 
-.aside div.title .headPortrait {
+.headPortrait {
     display: block;
     height: 57px;
     width: 57px;
@@ -132,14 +129,14 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
 }
 
-.aside div.title .headPortrait img {
+.headPortrait img {
     height: 47px;
     width: 47px;
     border-radius: 50%;
     background: rgba(246, 245, 245, 0.7);
 }
 
-.aside div.title h2 {
+.title h2 {
     width: 150px;
     height: 57px;
     padding: 0 18px;
@@ -147,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #f6f5f5;
 }
 
-.aside div.title p {
+.aside .title p {
     width: 74px;
     padding-left: 18px;
     margin-right: 13px;
@@ -156,11 +153,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #6e8095;
 }
 
-.aside div.title p:nth-of-type(1) {
+.aside .title p:nth-of-type(1) {
     border-right: 2px solid #383d4e;
 }
 
-.aside div.title p span {
+.title span {
     font: 16px/18px '黑体';
 }
 
@@ -206,38 +203,40 @@ h1, h2, h3, h4, h5, h6 {
     background: url("images/icons.png") -39px -24px no-repeat;
 }
 
-.list ul.menu {
+.menu {
     font: 12px/48px '黑体';
     color: #6e8095;
 }
 
-.list ul.menu p > i.icon {
+.menu p > i.icon {
     margin-right: 10px;
 }
 
-.list ul.menu p.active, .list ul.menu p:hover, .list ul.menu p + ul a:hover {
+.menu p.active,
+.menu p:hover,
+.menu p + ul a:hover {
     color: #ededef;
 }
 
-ul.menu li.level1.unfold {
+.unfold {
     background: #393d4e;
 }
 
-.menu li.level1 {
+.level1 {
     padding-left: 45px;
 }
 
-.menu .level1 ul.level2 {
+.level2 {
     margin-top: -10px;
     padding-left: 24px;
     line-height: 30px;
 }
 
-.menu .level1 .level2 ul.level3 {
+.level3 {
     padding-left: 32px;
 }
 
-.menu .level1 .level2 ul.level3 li {
+.level3 li {
     height: 30px;
 }
 
@@ -256,8 +255,8 @@ ul.menu li.level1.unfold {
     margin: 19px 69px 0 59px;
 }
 
-/* topBar */
-.main > p {
+/* 面包屑 */
+.breadcrumb {
     width: 100%;
     height: 30px;
     background: #fff;
@@ -266,11 +265,11 @@ ul.menu li.level1.unfold {
     padding-left: 30px;
 }
 
-.main > p > span {
+.breadcrumb span {
     color: #6898c2;
 }
 
-.main .find {
+.find {
     display: table;
     height: 87px;
     border: 1px solid #dcdee0;
@@ -279,30 +278,30 @@ ul.menu li.level1.unfold {
     padding-left: 30px;
 }
 
-.main .find > div {
+.find > div {
     display: table-cell;
 }
 
-.main .find > div:nth-of-type(1) {
+.find > div:nth-of-type(1) {
     vertical-align: top;
     width: 188px;
 }
 
-.main .find > div:nth-of-type(2) {
+.find > div:nth-of-type(2) {
     vertical-align: top;
     width: 218px;
     position: relative;
 }
 
-.main .find > div:nth-of-type(2) div.select {
+.find > div:nth-of-type(2) div.select {
     width: 120px;
 }
 
-.main .find > div:nth-of-type(2) div.saler {
+.find > div:nth-of-type(2) div.saler {
     margin-top: 5px;
 }
 
-.main .find > div:nth-of-type(2) div.change {
+.find > div:nth-of-type(2) div.change {
     position: absolute;
     right: 26px;
     top: 9px;
@@ -329,12 +328,12 @@ div.change a:hover {
     color: #388ac1;
 }
 
-.main .find > div:nth-of-type(3) {
+.find > div:nth-of-type(3) {
     vertical-align: top;
     width: 324px;
 }
 
-.main .find > div:nth-of-type(4) {
+.find > div:nth-of-type(4) {
     vertical-align: middle;
     width: 160px;
 }
@@ -350,7 +349,7 @@ button {
 }
 
 /* select */
-.main .find p.label {
+.find .label {
     font: 12px/26px '黑体';
     color: #aaa;
     margin-right: 15px;
@@ -409,15 +408,20 @@ div.select ul li:hover {
     width: 120px;
 }
 
-.number .select, .time .select {
+.number .select,
+.time .select {
     width: 70px;
 }
 
-.number, .date, .time, .deal {
+.number,
+.date,
+.time,
+.deal {
     margin-right: 15px;
 }
 
-.number, .deal {
+.number,
+.deal {
     margin-top: 5px;
 }
 
@@ -431,7 +435,8 @@ div.select ul li:hover {
     margin-top: 8px;
 }
 
-.toLeft, .toRight {
+.icon-angle-left,
+.icon-angle-right {
     display: block;
     width: 31px;
     height: 65px;
@@ -458,7 +463,7 @@ div.select ul li:hover {
     color: #ababaa;
 }
 
-.history i.toRight {
+.icon-angle-right {
     margin: 0 4px;
 }
 
@@ -629,7 +634,8 @@ div.select ul li:hover {
     position: relative;
 }
 
-.project_list a.tab_active, .project_list a:hover {
+.project_list a.tab_active,
+.project_list a:hover {
     height: 28px;
     background: #fff;
     border: 1px solid #cbcbcb;
@@ -777,7 +783,8 @@ div.select ul li:hover {
     border-bottom: 1px solid #d9eaf6;
 }
 
-.calendar-btn div.select p, .calendar-btn div.select p:hover {
+.calendar-btn div.select p,
+.calendar-btn div.select p:hover {
     background-image: none;
 }
 
@@ -793,7 +800,9 @@ div.select ul li:hover {
     background: url("images/icons.png") -93px -88px no-repeat;
 }
 
-.calendar-btn-down, .calendar-btn-prev, .calendar-btn-next {
+.calendar-btn-down,
+.calendar-btn-prev,
+.calendar-btn-next {
     position: absolute;
     display: block;
     top: 0;
@@ -801,41 +810,41 @@ div.select ul li:hover {
     height: 20px;
 }
 
-.calendar-btn .select span.calendar-btn-down {
+.calendar-btn-down {
     right: 0;
     border-left: 1px solid #f5f6f8;
 }
 
-.calendar-btn .select span.calendar-btn-prev {
+.calendar-btn-prev {
     left: 0;
     border-right: 1px solid #f5f6f8;
 }
 
-.calendar-btn .select span.calendar-btn-prev i {
+.calendar-btn span.calendar-btn-prev i {
     width: 5px;
     height: 9px;
     margin: 6px;
     background: url("images/icons.png") -95px -79px no-repeat;
 }
 
-.calendar-btn .select span.calendar-btn-next {
+.calendar-btn-next {
     right: 0;
     border-left: 1px solid #f5f6f8;
 }
 
-.calendar-btn .select span.calendar-btn-next i {
+.calendar-btn span.calendar-btn-next i {
     width: 5px;
     height: 9px;
     margin: 6px;
     background: url("images/icons.png") -95px -70px no-repeat;
 }
 
-.calendar-btn .calendar-btn-month span.calendar-btn-down {
+.calendar-btn-month .calendar-btn-down {
     right: 19px;
     border: none;
 }
 
-.calendar-btn .select i {
+.calendar-btn i {
     display: block;
     width: 7px;
     margin-top: 7px;
@@ -882,12 +891,12 @@ div.calendar-btn-month p.link {
     border-collapse: collapse;
 }
 
-.calendar-date-number tr.weekday {
+.weekday {
     height: 30px;
     border-bottom: 1px solid #e1e1e1;
 }
 
-.calendar-date-number tr.weekday + tr {
+.weekday + tr {
     border-top: 1px solid #ececed;
 }
 
@@ -904,11 +913,12 @@ div.calendar-btn-month p.link {
     height: 41px;
 }
 
-.calendar-date-number .special div {
+.special div {
     border: 1px solid #f4c21d;
 }
 
-.calendar-date-number .weekend .date-number, .holiday {
+.date-number,
+.holiday {
     color: #c9161d;
 }
 
